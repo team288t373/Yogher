@@ -6,8 +6,8 @@ const outDir = path.join(__dirname, '..', 'out');
 const publicDir = path.join(__dirname, '..', 'public');
 
 if (!fs.existsSync(outDir)) {
-  console.error('Error: out directory does not exist!');
-  process.exit(1);
+  console.log('[postbuild] Standard Next.js / Vercel build detected (no static out directory). Skipping static export post-processing.');
+  process.exit(0);
 }
 
 // 1. Copy .htaccess and .nojekyll
