@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+</IfModule>
+
+# Ensure proper MIME types
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType image/webp .webp
+AddType application/pdf .pdf
+
+# Ensure static assets are served with proper cache headers
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|webp|pdf)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+</IfModule>
