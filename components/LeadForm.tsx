@@ -154,6 +154,15 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
 
       // 3. Fire conversion events if trackers exist
       if (typeof window !== "undefined") {
+        try {
+          sessionStorage.setItem("yogher_lead_submitted", "true");
+          localStorage.setItem("yogher_lead_submitted", "true");
+          localStorage.setItem("yogher_user_name", trimmedName);
+          localStorage.setItem("yogher_user_phone", fullPhone);
+        } catch {
+          // ignore storage errors
+        }
+
         if (typeof window.fbq === "function") {
           window.fbq("track", "Lead", { content_name: pageType });
         }
