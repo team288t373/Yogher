@@ -1,6 +1,7 @@
 import OfferStrip from "@/components/sections/OfferStrip";
 import Header from "@/components/Header";
 import HeroYogher from "@/components/sections/HeroYogher";
+import VideoReelsSection from "@/components/sections/VideoReelsSection";
 import StatsBand from "@/components/sections/StatsBand";
 import Programs from "@/components/sections/Programs";
 import HowItWorks from "@/components/sections/HowItWorks";
@@ -27,7 +28,10 @@ export default function YogherPage() {
         {/* 3. Hero with free diet plan lead form */}
         <HeroYogher />
 
-        {/* 4. Stats band */}
+        {/* 4. 9:16 Vertical Video Reels (Right after Form Section with Left-to-Right Scrolling) */}
+        <VideoReelsSection />
+
+        {/* 5. Stats band */}
         <StatsBand />
 
         {/* 5. Programs + GlowHer cross-link card */}

@@ -109,7 +109,7 @@ export default function Programs() {
                   onClick={() => handleProgramClick(program.title)}
                   className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-bordeaux hover:text-muted transition-colors"
                 >
-                  <span>Book free trial for this goal</span>
+                  <span>Join batch for this goal</span>
                   <span>→</span>
                 </a>
               </div>

@@ -54,6 +54,17 @@ export interface VideoReview {
   quote?: string;
 }
 
+export interface VideoReel {
+  id: string;
+  title: string;
+  tag: string;
+  clientOrCoach: string;
+  duration: string;
+  thumbnail: string;
+  youtubeId?: string;
+  youtubeUrl?: string;
+}
+
 export interface PricingPlan {
   id: string;
   name: string;

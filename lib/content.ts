@@ -13,6 +13,7 @@ import {
   TransformationItem,
   DownloadItem,
   VideoReview,
+  VideoReel,
 } from "./types";
 
 export const CLOUDINARY_BASE = "https://res.cloudinary.com/dmtggqp0f/image/upload/";
@@ -342,6 +343,39 @@ export const yogherContent = {
       initials: "SS",
     },
   ] as Testimonial[],
+  // 9:16 Vertical Video Reels (Form section ke baad left-to-right scrolling mai 3 videos)
+  videoReels: [
+    {
+      id: "reel-1",
+      title: "Watch a Live Google Meet Yoga Session (Full Experience)",
+      tag: "Live Class",
+      clientOrCoach: "Live Interactive Batch with Real-Time Correction",
+      duration: "Full Session",
+      thumbnail: `${CLOUDINARY_BASE}v1779726637/Gemini_Generated_Image_f5wtff5wtff5wtff_lshpe6.png`,
+      // Paste your YouTube Shorts or Video link here, e.g. "https://youtube.com/shorts/..." or "https://youtu.be/..."
+      youtubeUrl: "",
+    },
+    {
+      id: "reel-2",
+      title: "Ritika's 10 Kg Weight Loss & Habit Reset Transformation",
+      tag: "Transformation",
+      clientOrCoach: "Ritika (Lost 10 Kgs in 90 Days)",
+      duration: "1:15",
+      thumbnail: `${CLOUDINARY_BASE}v1779079881/yogher/testimonials/z7xbxn9cbv81pw7eyabg.jpg`,
+      // Paste your YouTube Shorts or Video link here
+      youtubeUrl: "",
+    },
+    {
+      id: "reel-3",
+      title: "How Live Posture Correction Works on Google Meet",
+      tag: "Coach Demo",
+      clientOrCoach: "Coach Shivangi · Personalized Alignment",
+      duration: "1:02",
+      thumbnail: `${CLOUDINARY_BASE}v1780150970/yogher/instructorsgallery/epsrwspvk16ks6hqlgxa.png`,
+      // Paste your YouTube Shorts or Video link here
+      youtubeUrl: "",
+    },
+  ] as VideoReel[],
   videoReviews: [
     {
       id: "vid-1",
