@@ -1,23 +1,68 @@
+"use client";
+
+import { useRef } from "react";
 import SafeImage from "../SafeImage";
 import { yogherContent } from "@/lib/content";
 
 export default function Coaches() {
   const { coaches } = yogherContent;
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
 
   return (
     <section id="coaches" className="w-full py-16 sm:py-24 bg-white border-y border-cotton/40">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-eyebrow text-bordeaux/90 mb-2 inline-block">
-            Coaches
-          </span>
-          <h2 className="text-[28px] sm:text-[36px] md:text-[48px] font-extrabold tracking-tightest text-bordeaux leading-tight">
-            Certified women coaches who understand a woman&apos;s body.
-          </h2>
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-12 gap-4">
+          <div className="text-center sm:text-left">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-eyebrow text-bordeaux/90 mb-2 inline-block">
+              Coaches
+            </span>
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] font-extrabold tracking-tightest text-bordeaux leading-tight">
+              Certified women coaches who understand a woman&apos;s body.
+            </h2>
+          </div>
+
+          {/* Navigation Arrows for Slider */}
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={scrollLeft}
+              className="w-10 h-10 rounded-full border border-cotton bg-softpink text-bordeaux hover:bg-cotton flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Scroll coaches left"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={scrollRight}
+              className="w-10 h-10 rounded-full border border-cotton bg-softpink text-bordeaux hover:bg-cotton flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Scroll coaches right"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Horizontal Scroll-Snap Slider / Desktop Grid */}
-        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory px-4 sm:px-0 scroll-px-4 no-scrollbar">
+        <div
+          ref={sliderRef}
+          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory px-4 sm:px-0 scroll-px-4 no-scrollbar touch-pan-x"
+        >
           {coaches.map((coach, idx) => (
             <div
               key={idx}
@@ -70,7 +115,7 @@ export default function Coaches() {
 
         {/* Mobile Swipe Hint */}
         <div className="flex md:hidden items-center justify-center gap-1.5 pt-4 text-xs font-semibold text-muted">
-          <span>Swipe to see all coaches</span>
+          <span>Swipe or use arrows to view all coaches</span>
           <span aria-hidden="true">→</span>
         </div>
       </div>

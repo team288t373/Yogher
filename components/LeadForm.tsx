@@ -38,6 +38,7 @@ const TIME_OPTIONS = [
   "Morning",
   "Afternoon",
   "Evening",
+  "Flexible timings",
 ];
 
 export default function LeadForm({ variant, id }: LeadFormProps) {
@@ -175,20 +176,31 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
       }
 
       setIsSubmitted(true);
+      // Automatically redirect to WhatsApp Business with pre-filled message
+      if (typeof window !== "undefined") {
+        setTimeout(() => {
+          window.location.href = whatsappHref;
+        }, 400);
+      }
     } catch {
       // Always allow the user to see confirmation and proceed to WhatsApp
       setIsSubmitted(true);
+      if (typeof window !== "undefined") {
+        setTimeout(() => {
+          window.location.href = whatsappHref;
+        }, 400);
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const whatsappHref = isDiet
-    ? `https://wa.me/919457592078?text=${encodeURIComponent(
-        `Hi YogHer! I'd like to book my free live trial class.\n\nName: ${name || "Member"}\nGoal: ${selection}\nPhone: ${countryCode} ${phoneNumber}`
+    ? `https://wa.me/918679244416?text=${encodeURIComponent(
+        `Hi YogHer! I'd like to join YogHer live classes.\n\nName: ${name || "Member"}\nGoal: ${selection}\nPhone: ${countryCode} ${phoneNumber}\nPlease share batch timings and joining details.`
       )}`
-    : `https://wa.me/919457592078?text=${encodeURIComponent(
-        `Hi GlowHer! I'd like to join Face Yoga.\n\nName: ${name || "Member"}\nPreferred Time: ${selection}\nPhone: ${countryCode} ${phoneNumber}`
+    : `https://wa.me/918679244416?text=${encodeURIComponent(
+        `Hi GlowHer! I'd like to know more about the live face yoga classes.\n\nName: ${name || "Member"}\nPreferred Time: ${selection}\nPhone: ${countryCode} ${phoneNumber}`
       )}`;
 
   if (isSubmitted) {
@@ -201,26 +213,27 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
             : "bg-softpink p-6 sm:p-8 rounded-card-lg border border-cotton"
         } text-center flex flex-col items-center justify-center min-h-[380px] w-full min-w-0`}
       >
-        <div className="w-14 h-14 bg-cotton rounded-full flex items-center justify-center mb-4 text-bordeaux">
+        <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-emerald-600">
           <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <h3 className="text-2xl font-extrabold text-bordeaux mb-2">
-          {isDiet ? "Trial class requested" : "Thank you"}
+          Opening WhatsApp...
         </h3>
         <p className="text-muted text-base max-w-sm mb-6 leading-relaxed">
-          {isDiet
-            ? "Thank you. Our team will message you on WhatsApp with your Google Meet joining link and schedule shortly."
-            : "Thank you. Our team will message you on WhatsApp shortly."}
+          Connecting you with our team on WhatsApp with your details.
         </p>
         <a
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-bordeaux text-white font-semibold text-sm hover:opacity-95 transition-opacity"
+          className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-colors shadow-md gap-2"
         >
-          Chat on WhatsApp now
+          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+          </svg>
+          <span>Click here to open WhatsApp</span>
         </a>
       </div>
     );
@@ -238,13 +251,13 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
       {isDiet ? (
         <>
           <span className="inline-block px-3 py-1 bg-cotton text-bordeaux text-xs font-bold uppercase tracking-eyebrow rounded-full mb-3">
-            Free Live Trial
+            Join YogHer Live
           </span>
           <h2 className="text-2xl sm:text-[26px] font-extrabold text-bordeaux tracking-tight leading-tight">
-            Book your free live trial class
+            Find the right batch for you
           </h2>
           <p className="text-muted text-sm mt-1.5 mb-6">
-            Experience a 45-minute live interactive session on Google Meet with real-time coach feedback.
+            Share your goal to get batch timings, fees and joining link directly on WhatsApp.
           </p>
         </>
       ) : (
@@ -354,7 +367,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
               <span>Submitting...</span>
             </>
           ) : isDiet ? (
-            "Book Free Trial Class"
+            "Get Batch Details on WhatsApp"
           ) : (
             "Send me batch timings"
           )}

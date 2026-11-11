@@ -32,7 +32,7 @@ export default function FinalCTA() {
           Your future self will thank you.
         </h2>
         <p className="text-softpink text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed font-medium">
-          Book your free trial class and join 5,000+ women on the mat as early as tomorrow morning.
+          Start your daily practice and join 5,000+ women on the mat as early as tomorrow morning.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

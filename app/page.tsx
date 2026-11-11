@@ -4,7 +4,6 @@ import HeroYogher from "@/components/sections/HeroYogher";
 import StatsBand from "@/components/sections/StatsBand";
 import Programs from "@/components/sections/Programs";
 import HowItWorks from "@/components/sections/HowItWorks";
-import CoachStrip from "@/components/sections/CoachStrip";
 import MembershipIncludes from "@/components/sections/MembershipIncludes";
 import Coaches from "@/components/sections/Coaches";
 import Testimonials from "@/components/sections/Testimonials";
@@ -37,13 +36,10 @@ export default function YogherPage() {
         {/* 6. How it works */}
         <HowItWorks />
 
-        {/* 7. On the mat with our coaches (Photo strip marquee) */}
-        <CoachStrip />
-
-        {/* 8. Every membership includes */}
+        {/* 7. Every membership includes */}
         <MembershipIncludes />
 
-        {/* 9. Coaches */}
+        {/* 8. Coaches */}
         <Coaches />
 
         {/* 10. Testimonials */}

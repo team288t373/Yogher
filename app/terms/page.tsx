@@ -22,8 +22,8 @@ export default function TermsPage() {
           </p>
           <p className="text-sm text-muted">
             For urgent assistance or questions about your membership, reach our team via WhatsApp at{" "}
-            <a href="https://wa.me/919457592078" className="font-bold underline text-bordeaux">
-              +91 94575 92078
+            <a href="https://wa.me/918679244416" className="font-bold underline text-bordeaux">
+              +91 86792 44416
             </a>.
           </p>
           <div className="pt-4">

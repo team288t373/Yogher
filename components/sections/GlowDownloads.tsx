@@ -201,7 +201,7 @@ export default function GlowDownloads() {
   };
 
   const whatsappHref = activeItem
-    ? `https://wa.me/919457592078?text=${encodeURIComponent(
+    ? `https://wa.me/918679244416?text=${encodeURIComponent(
         `Hi YogHer! I downloaded the ${activeItem.title}. I'd like to know more about the live face yoga batches.\n\nName: ${name || "Member"}\nPhone: ${countryCode} ${phoneNumber}`
       )}`
     : siteConfig.glowherWhatsAppUrl;

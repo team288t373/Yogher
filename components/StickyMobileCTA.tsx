@@ -10,8 +10,8 @@ interface StickyMobileCTAProps {
 
 export default function StickyMobileCTA({ brand }: StickyMobileCTAProps) {
   const isYogher = brand === "yogher";
-  const ctaText = isYogher ? "Book Free Trial Class" : "Join from ₹999";
-  const targetHref = isYogher ? "#diet" : "#trial";
+  const ctaText = isYogher ? "Join from ₹1,199" : "Join from ₹999";
+  const targetHref = isYogher ? "#plans" : "#trial";
   const whatsappUrl = isYogher ? siteConfig.yogherWhatsAppUrl : siteConfig.glowherWhatsAppUrl;
 
   const [formInView, setFormInView] = useState(true);

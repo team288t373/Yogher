@@ -12,6 +12,7 @@ import {
   WeeklyDayItem,
   TransformationItem,
   DownloadItem,
+  VideoReview,
 } from "./types";
 
 export const CLOUDINARY_BASE = "https://res.cloudinary.com/dmtggqp0f/image/upload/";
@@ -164,10 +165,10 @@ export const IMAGES = {
 };
 
 export const siteConfig = {
-  phone: "+91 94575 92078",
-  phoneRaw: "919457592078",
-  yogherWhatsAppUrl: "https://wa.me/919457592078?text=Hi%20YogHer!%20I'd%20like%20to%20book%20my%20free%20trial%20class.",
-  glowherWhatsAppUrl: "https://wa.me/919457592078?text=Hi%20GlowHer!%20I'd%20like%20to%20know%20more%20about%20your%20face%20yoga%20classes.",
+  phone: "+91 86792 44416",
+  phoneRaw: "918679244416",
+  yogherWhatsAppUrl: "https://wa.me/918679244416?text=Hi%20YogHer!%20I'd%20like%20to%20know%20more%20about%20your%20live%20yoga%20batches.",
+  glowherWhatsAppUrl: "https://wa.me/918679244416?text=Hi%20GlowHer!%20I'd%20like%20to%20know%20more%20about%20your%20face%20yoga%20classes.",
   logoUrl: "/brand/yogher-logo.png",
 };
 
@@ -176,7 +177,7 @@ export const yogherContent = {
   hero: {
     chip: "Live online · Mon to Sat · 5 AM to 9 PM IST · Women only",
     h1: "Live yoga for Indian women, right from home.",
-    sub: "Personal live classes for weight loss, PCOS, body toning, flexibility and stress relief. Monday to Saturday live sessions on Google Meet that fit around your family schedule.",
+    sub: "Group online live classes for weight loss, PCOS, body toning, flexibility, stress relief and many more. Monday to Saturday online live sessions on Google Meet that fit around your schedule.",
     ctaPrimary: "See plans from ₹1,199",
     ctaPrimaryHref: "#plans",
     ctaSecondary: "Chat on WhatsApp",
@@ -225,23 +226,23 @@ export const yogherContent = {
   howItWorks: [
     {
       step: "01",
-      title: "Share your fitness goals",
-      description: "Tell us your preferred timing, focus area and fitness level so we can place you in the right batch.",
+      title: "Share your focus area & fitness level",
+      description: "Tell us your focus area and fitness level so that we can place you in the right group of batches.",
     },
     {
       step: "02",
-      title: "Book your free live trial",
-      description: "Experience a 45-minute live interactive class on Google Meet with real-time coach feedback.",
+      title: "Instant batch link after payment",
+      description: "After payment, receive WhatsApp confirmation with your group joining link. Access 10+ batches throughout the day and start joining right away.",
     },
     {
       step: "03",
-      title: "Pick your batch (Mon to Sat, 5 AM to 9 PM IST)",
-      description: "Flexible slots Monday to Saturday (6 days a week) that seamlessly fit your family and work schedule.",
+      title: "Personalised diet chart within 2–3 days",
+      description: "Our team shares your diet chart Google form, and within 2 to 3 days you receive your personalised diet plan.",
     },
     {
       step: "04",
       title: "Build a lasting daily habit",
-      description: "Live classes with real-time posture corrections. Recordings available if you ever miss one.",
+      description: "Daily live sessions with real-time posture corrections on Google Meet that fit seamlessly into your routine.",
     },
   ],
   coachStrip: IMAGES.coachStrip,
@@ -341,6 +342,35 @@ export const yogherContent = {
       initials: "SS",
     },
   ] as Testimonial[],
+  videoReviews: [
+    {
+      id: "vid-1",
+      title: "Watch a Live Google Meet Yoga Session (Full Recording)",
+      category: "Live Session Recording",
+      duration: "Full Session",
+      thumbnail: `${CLOUDINARY_BASE}v1779726637/Gemini_Generated_Image_f5wtff5wtff5wtff_lshpe6.png`,
+      clientName: "Batch Session with Coach",
+      quote: "See how our certified coaches correct posture live, interact with members, and guide breathwork.",
+    },
+    {
+      id: "vid-2",
+      title: "Ritika's 10 Kg Weight Loss & Habit Reset Review",
+      category: "Client Review",
+      duration: "Member Review",
+      thumbnail: `${CLOUDINARY_BASE}v1779079881/yogher/testimonials/z7xbxn9cbv81pw7eyabg.jpg`,
+      clientName: "Ritika (Lost 10 Kgs)",
+      quote: "From 78 kg to 68 kg in 90 days. Daily live accountability changed everything.",
+    },
+    {
+      id: "vid-3",
+      title: "Anika on Building 60 Days of Non-Stop Yoga Practice",
+      category: "Transformation Story",
+      duration: "Member Review",
+      thumbnail: `${CLOUDINARY_BASE}v1779080713/yogher/testimonials/egmsyftd6whodutyrtcj.jpg`,
+      clientName: "Anika Gupta",
+      quote: "Flexible batch timing made it possible to never miss a class around work and home.",
+    },
+  ] as VideoReview[],
   plansGroup: [
     {
       id: "group-1m",
@@ -349,7 +379,7 @@ export const yogherContent = {
       strikePrice: "₹2,000",
       duration: "/ 30 days",
       ctaText: "Start 1-Month Trial",
-      ctaHref: "#trial",
+      ctaHref: "#diet",
       features: [
         "Daily live sessions (Mon to Sat)",
         "Nutrition and lifestyle guide",
@@ -377,12 +407,12 @@ export const yogherContent = {
     },
     {
       id: "group-6m",
-      name: "6 Months Habit Builder",
-      price: "₹3,999",
-      strikePrice: "₹11,000",
+      name: "6 Months Transformation",
+      price: "₹3,599",
+      strikePrice: "₹12,000",
       duration: "/ 180 days",
       ctaText: "Start Transformation",
-      ctaHref: "#trial",
+      ctaHref: "#plans",
       features: [
         "Everything in 3 Months",
         "24x7 WhatsApp support",
@@ -661,7 +691,7 @@ export const glowherContent = {
       price: "₹999",
       duration: "/ 30 days",
       ctaText: "Start 1-Month Trial",
-      ctaHref: "#trial",
+      ctaHref: "#diet",
     },
     {
       id: "glow-3m",

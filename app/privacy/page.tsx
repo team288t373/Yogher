@@ -22,8 +22,8 @@ export default function PrivacyPage() {
           </p>
           <p className="text-sm text-muted">
             For any data-related queries, please contact our support team at{" "}
-            <a href="https://wa.me/919457592078" className="font-bold underline text-bordeaux">
-              +91 94575 92078
+            <a href="https://wa.me/918679244416" className="font-bold underline text-bordeaux">
+              +91 86792 44416
             </a>.
           </p>
           <div className="pt-4">

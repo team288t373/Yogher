@@ -43,6 +43,17 @@ export interface Testimonial {
   initials: string;
 }
 
+export interface VideoReview {
+  id: string;
+  title: string;
+  category: "Client Review" | "Live Session Recording" | "Transformation Story";
+  duration: string;
+  thumbnail: string;
+  youtubeId?: string;
+  clientName: string;
+  quote?: string;
+}
+
 export interface PricingPlan {
   id: string;
   name: string;
