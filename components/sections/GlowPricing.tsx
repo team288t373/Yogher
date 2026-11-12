@@ -15,25 +15,25 @@ export default function GlowPricing() {
     return (
       <div
         key={`${plan.id}-${isMobileView ? "m" : "d"}`}
-        className={`relative flex flex-col justify-between p-5 sm:p-6 lg:p-8 rounded-card-lg transition-all duration-200 ${
+        className={`relative flex flex-col justify-between p-5 sm:p-6 lg:p-6 xl:p-7 rounded-card-lg transition-all duration-200 ${
           isDark
             ? "bg-bordeaux text-white shadow-2xl scale-[1.02] border-2 border-bordeaux-light z-10 hover:shadow-2xl hover:-translate-y-0.5"
             : "bg-white text-bordeaux border border-cotton shadow-sm hover:shadow-lg hover:-translate-y-0.5"
         }`}
       >
         {plan.popular && (
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-cotton text-bordeaux text-xs font-extrabold uppercase tracking-eyebrow rounded-full shadow-sm">
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-cotton text-bordeaux text-xs font-extrabold uppercase tracking-eyebrow rounded-full shadow-sm whitespace-nowrap">
             Most popular
           </div>
         )}
 
         <div>
-          <h3 className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-bordeaux"}`}>
+          <h3 className={`text-lg sm:text-xl font-bold mb-3 ${isDark ? "text-white" : "text-bordeaux"}`}>
             {plan.name}
           </h3>
 
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
-            <span className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            <span className="text-3xl sm:text-3xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight">
               {plan.price}
             </span>
             <span className={`text-xs font-semibold ${isDark ? "text-cotton" : "text-muted"}`}>
@@ -55,7 +55,7 @@ export default function GlowPricing() {
         <div>
           <Link
             href={plan.ctaHref}
-            className={`w-full min-h-[48px] px-6 py-3 rounded-full font-bold text-sm tracking-wide flex items-center justify-center transition-all ${
+            className={`w-full min-h-[48px] px-5 py-3 rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-center transition-all ${
               isDark
                 ? "bg-cotton text-bordeaux hover:bg-white"
                 : "bg-bordeaux text-white hover:opacity-95"
@@ -101,7 +101,7 @@ export default function GlowPricing() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {plans.map((p) => renderCard(p, false))}
         </div>
 
