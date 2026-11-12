@@ -147,55 +147,27 @@ export default function VideoReelsSection() {
             <article
               key={reel.id}
               onClick={() => setSelectedReel(reel)}
-              className="group relative aspect-[9/16] w-[230px] sm:w-[260px] md:w-[280px] shrink-0 snap-center rounded-[26px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer bg-cotton border border-cotton/80 select-none flex flex-col justify-between"
+              className="group relative aspect-[9/16] w-[230px] sm:w-[260px] md:w-[280px] shrink-0 snap-center rounded-[26px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer bg-cotton border border-cotton/80 select-none flex items-center justify-center"
+              aria-label="Play video reel"
             >
               {/* Background Thumbnail Image with 9:16 aspect ratio */}
               <div className="absolute inset-0">
                 <SafeImage
                   src={reel.thumbnail}
-                  alt={reel.title}
+                  alt={reel.title || "YogHer live class reel"}
                   fill
                   sizes="(max-width: 640px) 230px, (max-width: 768px) 260px, 280px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Vertical Gradient Scrim */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/45" />
-              </div>
-
-              {/* Top Bar Badges */}
-              <div className="relative z-10 p-3.5 sm:p-4 flex items-center justify-between gap-2">
-                <span className="px-2.5 py-1 rounded-full bg-white/95 text-bordeaux text-[10px] font-extrabold uppercase tracking-wider shadow-sm backdrop-blur-sm">
-                  {reel.tag}
-                </span>
-                <span className="px-2 py-0.5 rounded-full bg-black/60 text-white text-[10px] font-semibold tracking-wide backdrop-blur-sm flex items-center gap-1">
-                  <svg className="w-3 h-3 fill-current text-red-500" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                  </svg>
-                  <span>{reel.duration}</span>
-                </span>
+                {/* Subtle overlay for clean contrast */}
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />
               </div>
 
               {/* Center Play Button Overlay */}
-              <div className="relative z-10 flex items-center justify-center my-auto">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-red-600 transition-all duration-300 ring-4 ring-white/30 backdrop-blur-sm">
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-red-600 transition-all duration-300 ring-4 ring-white/40 backdrop-blur-sm">
                   <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Bottom Card Content */}
-              <div className="relative z-10 p-4 sm:p-5 text-white">
-                <div className="text-[11px] font-semibold text-cotton/90 uppercase tracking-wide mb-1 line-clamp-1">
-                  {reel.clientOrCoach}
-                </div>
-                <h3 className="font-extrabold text-sm sm:text-base leading-snug text-white line-clamp-2 drop-shadow-sm group-hover:text-pink-100 transition-colors">
-                  {reel.title}
-                </h3>
-                <div className="mt-3 flex items-center gap-1.5 text-xs font-bold text-cotton group-hover:text-white transition-colors">
-                  <span>Watch video</span>
-                  <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </div>
