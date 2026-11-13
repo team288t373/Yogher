@@ -68,15 +68,14 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
 
   if (!isOpen) return null;
 
-  const yogherLinks = [
+  const yogherLinks: { label: string; href: string; isPage?: boolean }[] = [
     { label: "Programs", href: "#programs" },
     { label: "How it works", href: "#how" },
     { label: "Coaches", href: "#coaches" },
     { label: "Plans", href: "#plans" },
-    { label: "Face Yoga (GlowHer)", href: "/glowher", isPage: true },
   ];
 
-  const glowherLinks = [
+  const glowherLinks: { label: string; href: string; isPage?: boolean }[] = [
     { label: "Benefits", href: "#benefits" },
     { label: "Weekly Rhythm", href: "#rhythm" },
     { label: "Client Results", href: "#results" },

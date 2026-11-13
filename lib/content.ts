@@ -305,7 +305,7 @@ export const yogherContent = {
     },
     {
       name: "Manisha Chandani",
-      role: "Yoga & Face Yoga Instructor",
+      role: "Yoga & Holistic Wellness Instructor",
       experience: "PGDYT Yogkulam, practicing since 2018",
       image: `${CLOUDINARY_BASE}v1785862762/yogher/instructors/albytawz1le5e1u6f68k.png`,
       practiceImage: `${CLOUDINARY_BASE}v1785862764/yogher/instructorsgallery/fxpzrudcpe3xfvr9tuhx.png`,

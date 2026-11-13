@@ -30,7 +30,6 @@ const GOAL_OPTIONS = [
   "PCOS / irregular periods",
   "Body toning",
   "Stress relief / fitness",
-  "Face yoga",
 ];
 
 const TIME_OPTIONS = [
