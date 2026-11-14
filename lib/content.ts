@@ -252,7 +252,7 @@ export const yogherContent = {
     "Join any batch, 5 AM to 9 PM IST (Monday to Saturday)",
     "Small batches for real-time coach attention",
     "10-minute daily doubt session with your teacher",
-    "WhatsApp support from a fitness advisor",
+    "All-day WhatsApp support from a fitness advisor",
   ],
   coaches: [
     {
