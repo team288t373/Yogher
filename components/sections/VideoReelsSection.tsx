@@ -161,7 +161,7 @@ export default function VideoReelsSection() {
         <div
           ref={scrollRef}
           style={{ touchAction: "pan-x pan-y" }}
-          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-proximity px-1 sm:px-0 pb-4 pt-2 no-scrollbar scroll-smooth justify-start md:justify-center overscroll-x-contain overscroll-y-auto"
+          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-proximity px-1 sm:px-0 pb-4 pt-2 no-scrollbar scroll-smooth justify-start overscroll-x-contain overscroll-y-auto"
         >
           {videoReels.map((reel) => (
             <article
