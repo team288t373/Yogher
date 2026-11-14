@@ -141,31 +141,34 @@ export default function VideoReelsSection() {
         {/* 9:16 Video Reels Horizontal Scroll / Responsive Grid */}
         <div
           ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory px-1 sm:px-0 pb-4 pt-2 no-scrollbar touch-pan-x scroll-smooth justify-start md:justify-center"
+          style={{ touchAction: "pan-x pan-y" }}
+          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-proximity px-1 sm:px-0 pb-4 pt-2 no-scrollbar scroll-smooth justify-start md:justify-center overscroll-x-contain overscroll-y-auto"
         >
           {videoReels.map((reel) => (
             <article
               key={reel.id}
               onClick={() => setSelectedReel(reel)}
+              style={{ touchAction: "pan-x pan-y" }}
               className="group relative aspect-[9/16] w-[230px] sm:w-[260px] md:w-[280px] shrink-0 snap-center rounded-[26px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer bg-cotton border border-cotton/80 select-none flex items-center justify-center"
               aria-label="Play video reel"
             >
               {/* Background Thumbnail Image with 9:16 aspect ratio */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 pointer-events-none">
                 <SafeImage
                   src={reel.thumbnail}
                   alt={reel.title || "YogHer live class reel"}
                   fill
                   sizes="(max-width: 640px) 230px, (max-width: 768px) 260px, 280px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                  draggable={false}
                 />
                 {/* Subtle overlay for clean contrast */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
               </div>
 
               {/* Center Play Button Overlay */}
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-red-600 transition-all duration-300 ring-4 ring-white/40 backdrop-blur-sm">
+              <div className="relative z-10 flex items-center justify-center pointer-events-none">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-red-600 transition-all duration-300 ring-4 ring-white/40 backdrop-blur-sm pointer-events-none">
                   <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>

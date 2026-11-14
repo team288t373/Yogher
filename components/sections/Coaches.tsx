@@ -61,7 +61,8 @@ export default function Coaches() {
         {/* Mobile Horizontal Scroll-Snap Slider / Desktop Grid */}
         <div
           ref={sliderRef}
-          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory px-4 sm:px-0 scroll-px-4 no-scrollbar touch-pan-x"
+          style={{ touchAction: "pan-x pan-y" }}
+          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-proximity px-4 sm:px-0 scroll-px-4 no-scrollbar overscroll-x-contain overscroll-y-auto"
         >
           {coaches.map((coach, idx) => (
             <div

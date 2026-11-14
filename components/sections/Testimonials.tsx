@@ -89,11 +89,13 @@ export default function Testimonials() {
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => setIsPaused(false)}
-          className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory px-1 sm:px-0 scroll-px-4 no-scrollbar touch-pan-x scroll-smooth"
+          style={{ touchAction: "pan-x pan-y" }}
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-proximity px-1 sm:px-0 scroll-px-4 no-scrollbar scroll-smooth overscroll-x-contain overscroll-y-auto"
         >
           {testimonials.map((t, idx) => (
             <article
               key={idx}
+              style={{ touchAction: "pan-x pan-y" }}
               className="w-[85%] max-w-[340px] sm:w-[350px] md:w-[370px] shrink-0 snap-start whitespace-normal bg-white p-6 sm:p-7 rounded-card-lg border border-cotton shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between select-none"
             >
               <div>
