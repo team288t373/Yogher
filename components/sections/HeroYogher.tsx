@@ -32,14 +32,20 @@ export default function HeroYogher() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start min-w-0">
           {/* Left Column (Desktop & Mobile Content) */}
           <div className="lg:col-span-7 flex flex-col items-start pt-1 min-w-0 w-full">
-            {/* Pill Chip */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cotton border border-cotton/60 text-bordeaux text-xs sm:text-sm font-bold tracking-wide mb-5">
-              <span className="w-2 h-2 rounded-full bg-bordeaux" />
-              <span>{hero.chip}</span>
+            {/* Pill Chip with Equal Size Dots and Flexible Timings */}
+            <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-cotton border border-cotton/60 text-bordeaux text-xs sm:text-sm font-bold tracking-wide mb-4">
+              <span className="w-2 h-2 rounded-full bg-bordeaux shrink-0" />
+              <span>Live online</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+              <span>Flexible timings</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+              <span>Mon to Sat (5 AM to 9 PM IST)</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+              <span>Women only</span>
             </div>
 
             {/* H1 */}
-            <h1 className="text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-extrabold tracking-tightest text-bordeaux leading-[1.04] mb-5">
+            <h1 className="text-[25px] sm:text-[32px] md:text-[40px] lg:text-[46px] font-extrabold tracking-tightest text-bordeaux leading-[1.14] mb-4">
               {hero.h1}
             </h1>
 

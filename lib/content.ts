@@ -176,8 +176,8 @@ export const siteConfig = {
 export const yogherContent = {
   offerStrip: "3-Month Progress plan at 60% off this week. Limited seats in each batch.",
   hero: {
-    chip: "Live online · Mon to Sat · 5 AM to 9 PM IST · Women only",
-    h1: "Live yoga for Indian women, right from home.",
+    chip: "Live online • Flexible timings • Mon to Sat (5 AM to 9 PM IST) • Women only",
+    h1: "Online Live Yoga Classes for Indian Women Across The Globe",
     sub: "Group online live classes for weight loss, PCOS, body toning, flexibility, stress relief and many more. Monday to Saturday online live sessions on Google Meet that fit around your schedule.",
     ctaPrimary: "See plans from ₹1,199",
     ctaPrimaryHref: "#plans",
