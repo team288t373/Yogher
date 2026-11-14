@@ -5,46 +5,65 @@ import SafeImage from "../SafeImage";
 import { yogherContent, siteConfig } from "@/lib/content";
 import type { VideoReel } from "@/lib/types";
 
-function getYouTubeEmbedUrl(urlOrId?: string): string | null {
+function extractYouTubeId(urlOrId?: string): string | null {
   if (!urlOrId) return null;
   const trimmed = urlOrId.trim();
   if (!trimmed) return null;
 
   // Direct 11-character YouTube video ID
   if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
-    return `https://www.youtube-nocookie.com/embed/${trimmed}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    return trimmed;
   }
 
   // YouTube Shorts: youtube.com/shorts/<id>
   const shortsMatch = trimmed.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
   if (shortsMatch && shortsMatch[1]) {
-    return `https://www.youtube-nocookie.com/embed/${shortsMatch[1]}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    return shortsMatch[1];
   }
 
   // youtu.be/<id>
   const youtuBeMatch = trimmed.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
   if (youtuBeMatch && youtuBeMatch[1]) {
-    return `https://www.youtube-nocookie.com/embed/${youtuBeMatch[1]}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    return youtuBeMatch[1];
   }
 
   // youtube.com/watch?v=<id>
   const watchMatch = trimmed.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
   if (watchMatch && watchMatch[1]) {
-    return `https://www.youtube-nocookie.com/embed/${watchMatch[1]}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    return watchMatch[1];
   }
 
   // youtube.com/embed/<id>
   const embedMatch = trimmed.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
   if (embedMatch && embedMatch[1]) {
-    return `https://www.youtube-nocookie.com/embed/${embedMatch[1]}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-  }
-
-  // If already full embed or web URL
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-    return trimmed;
+    return embedMatch[1];
   }
 
   return null;
+}
+
+function getYouTubeEmbedUrl(urlOrId?: string): string | null {
+  const videoId = extractYouTubeId(urlOrId);
+  if (videoId) {
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
+  }
+
+  if (urlOrId && (urlOrId.startsWith("http://") || urlOrId.startsWith("https://"))) {
+    return urlOrId;
+  }
+
+  return null;
+}
+
+function getReelThumbnail(reel: VideoReel): string {
+  if (reel.thumbnail && reel.thumbnail.trim()) {
+    return reel.thumbnail;
+  }
+  const videoId = extractYouTubeId(reel.youtubeUrl || reel.youtubeId);
+  if (videoId) {
+    return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  }
+  return "";
 }
 
 export default function VideoReelsSection() {
@@ -155,7 +174,7 @@ export default function VideoReelsSection() {
               {/* Background Thumbnail Image with 9:16 aspect ratio */}
               <div className="absolute inset-0 pointer-events-none">
                 <SafeImage
-                  src={reel.thumbnail}
+                  src={getReelThumbnail(reel)}
                   alt={reel.title || "YogHer live class reel"}
                   fill
                   sizes="(max-width: 640px) 230px, (max-width: 768px) 260px, 280px"
