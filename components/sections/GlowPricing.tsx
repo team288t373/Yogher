@@ -55,6 +55,8 @@ export default function GlowPricing() {
         <div>
           <Link
             href={plan.ctaHref}
+            target={plan.ctaHref.startsWith("http") ? "_blank" : undefined}
+            rel={plan.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
             className={`w-full min-h-[48px] px-5 py-3 rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-center transition-all ${
               isDark
                 ? "bg-cotton text-bordeaux hover:bg-white"
