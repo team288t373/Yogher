@@ -342,6 +342,41 @@ export const yogherContent = {
       image: `${CLOUDINARY_BASE}v1779081374/yogher/testimonials/fzmzlr8yf4rhitjy6j8q.jpg`,
       initials: "SS",
     },
+    {
+      name: "Krati Sharma",
+      duration: "4-month transformation",
+      quote: "Managing PCOS felt impossible with my work hours. Daily 7 AM live batch regulated my cycle in 4 months and my energy levels are higher than ever.",
+      image: `${CLOUDINARY_BASE}v1778651263/yogher/testimonials/nb5g3vsdie75r5fwqik2.png`,
+      initials: "KS",
+    },
+    {
+      name: "Meenal Thokare",
+      duration: "90-day transformation",
+      quote: "Lost 7 kgs and 3 inches off my waist. The coach's live posture corrections on Google Meet made all the difference — it feels like personal training in a warm community.",
+      image: `${CLOUDINARY_BASE}v1778652067/yogher/testimonials/x19y44l21sipq4prg2ze.png`,
+      initials: "MT",
+    },
+    {
+      name: "Sneha Reddy",
+      duration: "6-month transformation",
+      quote: "Joined for severe lower back stiffness from desk work. Within 6 weeks the pain reduced drastically, and now daily yoga is my non-negotiable morning ritual.",
+      image: `${CLOUDINARY_BASE}v1778652922/yogher/testimonials/s7hzbf9ostk6uf3mggo0.png`,
+      initials: "SR",
+    },
+    {
+      name: "Pooja Verma",
+      duration: "60-day transformation",
+      quote: "The flexible batch timings are a lifesaver. Being able to attend morning 6:30 AM or evening 7 PM slots means I never miss a class no matter my family routine.",
+      image: `${CLOUDINARY_BASE}v1780149719/yogher/instructorsgallery/iunmzef0emt0ikdluhgm.png`,
+      initials: "PV",
+    },
+    {
+      name: "Deepika Nair",
+      duration: "90-day transformation",
+      quote: "I was skeptical about online yoga, but the coaches genuinely pay attention to everyone. Corrected my alignment live, boosted my stamina, and helped me drop 2 sizes.",
+      image: `${CLOUDINARY_BASE}v1779185210/yogher/instructorsgallery/fy0v9dcbv0ncf05vk9ns.png`,
+      initials: "DN",
+    },
   ] as Testimonial[],
   // 9:16 Vertical Video Reels (Form section ke baad left-to-right scrolling mai 3 videos)
   videoReels: [

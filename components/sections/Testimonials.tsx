@@ -1,30 +1,100 @@
+"use client";
+
+import { useRef, useState, useEffect } from "react";
 import SafeImage from "../SafeImage";
 import { yogherContent } from "@/lib/content";
 
 export default function Testimonials() {
   const { testimonials } = yogherContent;
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-scroll every 3.5 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        // If reached or near the end, loop smoothly back to start
+        if (scrollLeft + clientWidth >= scrollWidth - 25) {
+          sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          sliderRef.current.scrollBy({ left: 360, behavior: "smooth" });
+        }
+      }
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -360, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 360, behavior: "smooth" });
+    }
+  };
 
   return (
-    <section id="reviews" className="w-full py-16 sm:py-24 bg-softpink/60 overflow-hidden">
+    <section id="reviews" className="w-full py-16 sm:py-24 bg-softpink/60 overflow-hidden scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-eyebrow text-bordeaux/90 mb-2 inline-block">
-            Success Stories
-          </span>
-          <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-extrabold tracking-tightest text-bordeaux leading-tight mb-3">
-            Real women. Real results.
-          </h2>
-          <p className="text-muted text-sm sm:text-base max-w-lg mx-auto">
-            Hear transformation stories and daily habit breakthroughs from women in our live batches.
-          </p>
+        {/* Header with Title and Left/Right Navigation Arrows */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 sm:mb-12 gap-4">
+          <div className="max-w-2xl">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-eyebrow text-bordeaux/90 mb-2 inline-block">
+              Success Stories
+            </span>
+            <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-extrabold tracking-tightest text-bordeaux leading-tight mb-2">
+              Real women. Real results.
+            </h2>
+            <p className="text-muted text-sm sm:text-base max-w-lg">
+              Hear transformation stories and daily habit breakthroughs from women in our live batches.
+            </p>
+          </div>
+
+          {/* Slider Navigation Arrows */}
+          <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            <button
+              type="button"
+              onClick={scrollLeft}
+              className="w-10 h-10 rounded-full border border-cotton bg-white text-bordeaux hover:bg-cotton shadow-sm flex items-center justify-center transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-bordeaux"
+              aria-label="Previous review"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={scrollRight}
+              className="w-10 h-10 rounded-full border border-cotton bg-white text-bordeaux hover:bg-cotton shadow-sm flex items-center justify-center transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-bordeaux"
+              aria-label="Next review"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Member Testimonials Grid */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 lg:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory px-4 sm:px-0 scroll-px-4 no-scrollbar touch-pan-x">
+        {/* Auto-Scrolling Member Testimonials Carousel */}
+        <div
+          ref={sliderRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory px-1 sm:px-0 scroll-px-4 no-scrollbar touch-pan-x scroll-smooth"
+        >
           {testimonials.map((t, idx) => (
-            <div
+            <article
               key={idx}
-              className="w-[85%] max-w-[340px] md:w-auto md:max-w-none shrink-0 snap-start whitespace-normal bg-white p-6 sm:p-7 lg:p-8 rounded-card-lg border border-cotton shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between min-w-0"
+              className="w-[85%] max-w-[340px] sm:w-[350px] md:w-[370px] shrink-0 snap-start whitespace-normal bg-white p-6 sm:p-7 rounded-card-lg border border-cotton shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between select-none"
             >
               <div>
                 {/* 5 Stars Rating */}
@@ -66,20 +136,29 @@ export default function Testimonials() {
               </div>
 
               {/* Verified Member Badge */}
-              <div className="pt-5 mt-5 border-t border-cotton/40 flex items-center gap-1.5 text-xs font-bold text-bordeaux">
-                <svg className="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Verified YogHer Member</span>
+              <div className="pt-5 mt-5 border-t border-cotton/40 flex items-center justify-between text-xs font-bold text-bordeaux">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Verified YogHer Member</span>
+                </span>
+                <span className="text-muted text-[11px] font-normal">Google Meet Batch</span>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-center gap-1.5 pt-4 text-xs font-semibold text-muted">
-          <span>Swipe to see all stories</span>
-          <span aria-hidden="true">→</span>
+        {/* Mobile Swipe Hint and Auto-Scroll Status */}
+        <div className="flex items-center justify-between pt-3 text-xs font-semibold text-muted px-1">
+          <span className="flex items-center gap-1.5">
+            <span className={`w-2 h-2 rounded-full ${isPaused ? "bg-amber-400" : "bg-emerald-500 animate-pulse"}`} />
+            <span>{isPaused ? "Paused" : "Auto-scrolling"}</span>
+          </span>
+          <span className="flex items-center gap-1">
+            <span>Swipe to explore all {testimonials.length} stories</span>
+            <span aria-hidden="true">→</span>
+          </span>
         </div>
       </div>
     </section>
