@@ -33,14 +33,16 @@ export default function HeroYogher() {
           {/* Left Column (Desktop & Mobile Content) */}
           <div className="lg:col-span-7 flex flex-col items-start pt-1 min-w-0 w-full">
             {/* Pill Chip with Equal Size Dots and Flexible Timings */}
-            <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-cotton border border-cotton/60 text-bordeaux text-xs sm:text-sm font-bold tracking-wide mb-4">
-              <span className="w-2 h-2 rounded-full bg-bordeaux shrink-0" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-cotton border border-cotton/60 text-bordeaux text-[11px] sm:text-xs md:text-sm font-bold tracking-tight sm:tracking-wide mb-4 shadow-xs whitespace-nowrap overflow-hidden max-w-full">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-bordeaux shrink-0" />
               <span>Live online</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
-              <span>Flexible timings</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
-              <span>Mon to Sat (5 AM to 9 PM IST)</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+              <span>Flexible timings (5 AM–9 PM)</span>
+              <span className="hidden sm:inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
+                <span>Mon to Sat</span>
+              </span>
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-bordeaux/60 shrink-0" aria-hidden="true" />
               <span>Women only</span>
             </div>
 
