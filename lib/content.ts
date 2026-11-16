@@ -364,13 +364,6 @@ export const yogherContent = {
       initials: "SR",
     },
     {
-      name: "Pooja Verma",
-      duration: "60-day transformation",
-      quote: "The flexible batch timings are a lifesaver. Being able to attend morning 6:30 AM or evening 7 PM slots means I never miss a class no matter my family routine.",
-      image: `${CLOUDINARY_BASE}v1780149719/yogher/instructorsgallery/iunmzef0emt0ikdluhgm.png`,
-      initials: "PV",
-    },
-    {
       name: "Deepika Nair",
       duration: "90-day transformation",
       quote: "I was skeptical about online yoga, but the coaches genuinely pay attention to everyone. Corrected my alignment live, boosted my stamina, and helped me drop 2 sizes.",
