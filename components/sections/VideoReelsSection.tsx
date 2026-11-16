@@ -112,8 +112,8 @@ export default function VideoReelsSection() {
 
   return (
     <section
-      id="class-videos"
-      aria-label="Live Class Videos and Stories"
+      id="video-reviews"
+      aria-label="Real Client Video Reviews"
       className="w-full py-12 sm:py-16 bg-gradient-to-b from-softpink via-white to-softpink/40 border-b border-cotton/50 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -122,13 +122,13 @@ export default function VideoReelsSection() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cotton text-bordeaux text-xs font-bold uppercase tracking-eyebrow mb-2">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-              <span>Live Class &amp; Results Videos</span>
+              <span>Real Client Video Reviews</span>
             </div>
             <h2 className="text-[26px] sm:text-[34px] md:text-[40px] font-extrabold tracking-tightest text-bordeaux leading-tight">
-              See what happens inside our live Google Meet batches.
+              Real reviews from women who transformed with YogHer.
             </h2>
             <p className="text-muted text-sm sm:text-base mt-1.5 max-w-xl">
-              Real posture corrections, interactive live energy, and authentic 90-day transformations.
+              Authentic transformation stories, weight loss results, and daily habit breakthroughs shared by our live class members.
             </p>
           </div>
 
