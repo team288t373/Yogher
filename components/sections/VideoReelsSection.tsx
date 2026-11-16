@@ -67,9 +67,12 @@ function getReelThumbnail(reel: VideoReel): string {
 }
 
 export default function VideoReelsSection() {
-  const { videoReels } = yogherContent;
+  const { classReels = [], videoReels = [] } = yogherContent;
+  const [activeTab, setActiveTab] = useState<"classes" | "feedback">("classes");
   const [selectedReel, setSelectedReel] = useState<VideoReel | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const currentReels = activeTab === "classes" ? classReels : videoReels;
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -106,14 +109,14 @@ export default function VideoReelsSection() {
     }
   };
 
-  if (!videoReels || videoReels.length === 0) {
+  if ((!classReels || classReels.length === 0) && (!videoReels || videoReels.length === 0)) {
     return null;
   }
 
   return (
     <section
       id="video-reviews"
-      aria-label="Real Client Video Reviews"
+      aria-label="Inside Our Classes and Client Feedback Videos"
       className="w-full py-12 sm:py-16 bg-gradient-to-b from-softpink via-white to-softpink/40 border-b border-cotton/50 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -122,13 +125,21 @@ export default function VideoReelsSection() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cotton text-bordeaux text-xs font-bold uppercase tracking-eyebrow mb-2">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-              <span>Real Client Video Reviews</span>
+              <span>
+                {activeTab === "classes"
+                  ? "Live Google Meet Sessions"
+                  : "Real Client Feedback"}
+              </span>
             </div>
             <h2 className="text-[26px] sm:text-[34px] md:text-[40px] font-extrabold tracking-tightest text-bordeaux leading-tight">
-              Real reviews from women who transformed with YogHer.
+              {activeTab === "classes"
+                ? "See what happens inside our live Google Meet batches."
+                : "Real feedback from women who practice with YogHer."}
             </h2>
             <p className="text-muted text-sm sm:text-base mt-1.5 max-w-xl">
-              Authentic transformation stories, weight loss results, and daily habit breakthroughs shared by our live class members.
+              {activeTab === "classes"
+                ? "Real posture corrections, interactive live energy, and coach guidance in every session."
+                : "Authentic transformation stories, weight loss results, and daily habit breakthroughs."}
             </p>
           </div>
 
@@ -157,13 +168,56 @@ export default function VideoReelsSection() {
           </div>
         </div>
 
+        {/* Clean Two-Pill Tab Switcher — Inside Our Classes vs Client Feedback */}
+        <div className="flex items-center gap-2 sm:gap-3 mb-6">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab("classes");
+              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+            }}
+            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "classes"
+                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
+                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
+            }`}
+          >
+            <span>Inside Our Classes</span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+              activeTab === "classes" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
+            }`}>
+              {classReels.length}
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab("feedback");
+              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+            }}
+            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "feedback"
+                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
+                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
+            }`}
+          >
+            <span>Client Feedback</span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+              activeTab === "feedback" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
+            }`}>
+              {videoReels.length}
+            </span>
+          </button>
+        </div>
+
         {/* 9:16 Video Reels Horizontal Scroll / Responsive Grid */}
         <div
           ref={scrollRef}
           style={{ touchAction: "pan-x pan-y" }}
           className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-proximity px-1 sm:px-0 pb-4 pt-2 no-scrollbar scroll-smooth justify-start overscroll-x-contain overscroll-y-auto"
         >
-          {videoReels.map((reel) => (
+          {currentReels.map((reel) => (
             <article
               key={reel.id}
               onClick={() => setSelectedReel(reel)}
@@ -175,14 +229,21 @@ export default function VideoReelsSection() {
               <div className="absolute inset-0 pointer-events-none">
                 <SafeImage
                   src={getReelThumbnail(reel)}
-                  alt={reel.title || "YogHer live class reel"}
+                  alt={reel.title || "YogHer video reel"}
                   fill
                   sizes="(max-width: 640px) 230px, (max-width: 768px) 260px, 280px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
                   draggable={false}
                 />
                 {/* Subtle overlay for clean contrast */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/15 group-hover:bg-black/30 transition-colors duration-300 pointer-events-none" />
+              </div>
+
+              {/* Tag pill at top-left */}
+              <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-bold">
+                  {reel.tag}
+                </span>
               </div>
 
               {/* Center Play Button Overlay */}
@@ -192,6 +253,16 @@ export default function VideoReelsSection() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
+              </div>
+
+              {/* Bottom Card Title Overlay */}
+              <div className="absolute bottom-0 inset-x-0 p-3.5 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-10 pointer-events-none text-left">
+                <p className="text-white text-xs sm:text-sm font-bold line-clamp-1 leading-snug">
+                  {reel.title}
+                </p>
+                <p className="text-cotton/90 text-[11px] line-clamp-1 mt-0.5">
+                  {reel.clientOrCoach}
+                </p>
               </div>
             </article>
           ))}
