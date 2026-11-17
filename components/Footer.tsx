@@ -74,12 +74,8 @@ export default function Footer({ brand }: FooterProps) {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/glowher"
-                      className="inline-flex items-center gap-1.5 text-cotton font-bold hover:underline min-h-[44px]"
-                    >
-                      <span>GlowHer (Face yoga)</span>
-                      <span className="text-xs">→</span>
+                    <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                      Pregnancy & pre-natal yoga
                     </Link>
                   </li>
                 </>

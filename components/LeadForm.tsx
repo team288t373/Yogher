@@ -125,72 +125,62 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
       utm_content,
     };
 
-    try {
-      // 1. Send to client webhook if configured
-      const webhookUrl = process.env.NEXT_PUBLIC_LEAD_WEBHOOK_URL;
-      if (webhookUrl) {
-        try {
-          await fetch(webhookUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            mode: "no-cors",
-            body: JSON.stringify(payload),
-          });
-        } catch (e) {
-          console.warn("Client webhook notice:", e);
-        }
-      }
+    const targetMessage = isDiet
+      ? `Hi YogHer! I'd like to join YogHer live classes.\n\nName: ${trimmedName}\nPhone: ${fullPhone}\nGoal: ${selection}\nPlease share batch timings and details.`
+      : `Hi GlowHer! I'd like to know more about the live face yoga classes.\n\nName: ${trimmedName}\nPhone: ${fullPhone}\nPreferred Time: ${selection}\nPlease share batch timings and joining details.`;
 
-      // 2. Send to local API route if running in server mode
+    const targetWhatsappUrl = `https://wa.me/918679244416?text=${encodeURIComponent(targetMessage)}`;
+
+    // 1. Send to client webhook if configured (background fire-and-forget)
+    const webhookUrl = process.env.NEXT_PUBLIC_LEAD_WEBHOOK_URL;
+    if (webhookUrl) {
       try {
-        await fetch("/api/lead", {
+        fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          mode: "no-cors",
           body: JSON.stringify(payload),
-        });
+        }).catch((e) => console.warn("Client webhook notice:", e));
+      } catch (e) {
+        console.warn("Client webhook notice:", e);
+      }
+    }
+
+    // 2. Send to local API route in background
+    try {
+      fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
+    } catch {}
+
+    // 3. Fire conversion events if trackers exist
+    if (typeof window !== "undefined") {
+      try {
+        sessionStorage.setItem("yogher_lead_submitted", "true");
+        localStorage.setItem("yogher_lead_submitted", "true");
+        localStorage.setItem("yogher_user_name", trimmedName);
+        localStorage.setItem("yogher_user_phone", fullPhone);
       } catch {
-        // Ignored in static export mode
+        // ignore storage errors
       }
 
-      // 3. Fire conversion events if trackers exist
-      if (typeof window !== "undefined") {
-        try {
-          sessionStorage.setItem("yogher_lead_submitted", "true");
-          localStorage.setItem("yogher_lead_submitted", "true");
-          localStorage.setItem("yogher_user_name", trimmedName);
-          localStorage.setItem("yogher_user_phone", fullPhone);
-        } catch {
-          // ignore storage errors
-        }
-
-        if (typeof window.fbq === "function") {
-          window.fbq("track", "Lead", { content_name: pageType });
-        }
-        if (typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", {
-            event_category: "Lead",
-            event_label: pageType,
-          });
-        }
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Lead", { content_name: pageType });
+      }
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "Lead",
+          event_label: pageType,
+        });
       }
 
       setIsSubmitted(true);
-      // Automatically redirect to WhatsApp Business with pre-filled message
-      if (typeof window !== "undefined") {
-        setTimeout(() => {
-          window.location.href = whatsappHref;
-        }, 400);
-      }
-    } catch {
-      // Always allow the user to see confirmation and proceed to WhatsApp
-      setIsSubmitted(true);
-      if (typeof window !== "undefined") {
-        setTimeout(() => {
-          window.location.href = whatsappHref;
-        }, 400);
-      }
-    } finally {
       setIsSubmitting(false);
+
+      // Direct instant redirect to WhatsApp Business with pre-filled message
+      window.location.href = targetWhatsappUrl;
     }
   };
 
@@ -368,7 +358,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
           ) : isDiet ? (
             "Get Batch Details on WhatsApp"
           ) : (
-            "Send me batch timings"
+            "Get Batch Timings on WhatsApp"
           )}
         </button>
 

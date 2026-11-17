@@ -580,7 +580,7 @@ export const yogherContent = {
       strikePrice: "₹2,000",
       duration: "/ 30 days",
       ctaText: "Start 1-Month Trial",
-      ctaHref: "#diet",
+      ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.",
       features: [
         "Daily live sessions (Mon to Sat)",
         "Nutrition and lifestyle guide",

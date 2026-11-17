@@ -72,6 +72,7 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
     { label: "Programs", href: "#programs" },
     { label: "How it works", href: "#how" },
     { label: "Coaches", href: "#coaches" },
+    { label: "Reviews", href: "#reviews" },
     { label: "Plans", href: "#plans" },
   ];
 
@@ -81,7 +82,6 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
     { label: "Client Results", href: "#results" },
     { label: "Guides & Downloads", href: "#downloads" },
     { label: "Pricing", href: "#pricing" },
-    { label: "All yoga programs", href: "/", isPage: true },
   ];
 
   const links = brand === "yogher" ? yogherLinks : glowherLinks;
@@ -117,30 +117,10 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
         className="relative z-10 w-full bg-softpink border-b-2 border-bordeaux/20 shadow-2xl px-6 pt-6 pb-8 flex flex-col max-h-[90vh] overflow-y-auto"
       >
         <div className="flex items-center justify-between pb-4 border-b border-cotton">
-          {/* Brand Switcher inside mobile menu */}
-          <div className="flex items-center p-1 bg-white rounded-full border border-cotton shadow-sm">
-            <Link
-              href="/"
-              onClick={handleLinkClick}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                brand === "yogher"
-                  ? "bg-bordeaux text-white shadow-sm"
-                  : "text-bordeaux hover:bg-softpink"
-              }`}
-            >
-              YogHer
-            </Link>
-            <Link
-              href="/glowher"
-              onClick={handleLinkClick}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                brand === "glowher"
-                  ? "bg-bordeaux text-white shadow-sm"
-                  : "text-bordeaux hover:bg-softpink"
-              }`}
-            >
-              GlowHer
-            </Link>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-extrabold tracking-tightest text-bordeaux">
+              {brand === "yogher" ? "YogHer" : "GlowHer"}
+            </span>
           </div>
 
           {/* Close button */}
