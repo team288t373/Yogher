@@ -363,7 +363,7 @@ export const yogherContent = {
       name: "Pooja",
       role: "Hatha & Ashtanga Yoga Instructor",
       experience: "2+ yrs exp · Certified TTC",
-      image: `${CLOUDINARY_BASE}v1780149717/yogher/instructors/dmdnfw3x3jcakioy9whh.png`,
+      image: `${CLOUDINARY_BASE}c_fill,g_face,w_600,h_750/v1780149717/yogher/instructors/dmdnfw3x3jcakioy9whh.png`,
       practiceImage: `${CLOUDINARY_BASE}v1780149719/yogher/instructorsgallery/iunmzef0emt0ikdluhgm.png`,
       initials: "P",
     },

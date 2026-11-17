@@ -17,8 +17,8 @@ export default function MembershipIncludes() {
     <section className="w-full py-14 sm:py-20 bg-softpink">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="bg-cotton/60 p-6 sm:p-10 lg:p-12 rounded-card-xl border border-pink/30 shadow-sm">
-          {/* Mobile Photo Banner: 200px banner above list */}
-          <div className="lg:hidden relative w-full h-[200px] rounded-[24px] overflow-hidden bg-cotton mb-8 shadow-sm">
+          {/* Mobile Photo Banner: Square aspect ratio so the full yoga posture is visible without cropping */}
+          <div className="lg:hidden relative w-full aspect-square max-w-[420px] mx-auto rounded-[24px] overflow-hidden bg-cotton mb-8 shadow-sm">
             <SafeImage
               src={IMAGES.membership}
               alt="YogHer certified coach in yoga practice"
@@ -30,9 +30,9 @@ export default function MembershipIncludes() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Desktop Left Column: Photo (rounded 28px, aspect-[4/5]) */}
+            {/* Desktop Left Column: Photo (rounded 28px, aspect-square for 1:1 original photo) */}
             <div className="hidden lg:block lg:col-span-5">
-              <div className="relative w-full aspect-[4/5] rounded-[28px] overflow-hidden bg-cotton shadow-md">
+              <div className="relative w-full aspect-square rounded-[28px] overflow-hidden bg-cotton shadow-md">
                 <SafeImage
                   src={IMAGES.membership}
                   alt="YogHer certified coach in yoga practice"

@@ -69,8 +69,8 @@ export default function Coaches() {
               key={idx}
               className="group w-[85%] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-start whitespace-normal bg-softpink/30 rounded-card-lg border border-cotton shadow-sm overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
-              {/* Photo Area with 4:3 ratio on mobile / 4:5 on desktop */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] bg-cotton overflow-hidden">
+              {/* Photo Area with 4:5 portrait ratio */}
+              <div className="relative w-full aspect-[4/5] bg-cotton overflow-hidden">
                 {/* Default Portrait Photo */}
                 <SafeImage
                   src={coach.image}
@@ -78,7 +78,7 @@ export default function Coaches() {
                   fill
                   loading="lazy"
                   sizes="(max-width: 768px) 85vw, (max-width: 1200px) 45vw, 360px"
-                  className="object-cover object-top transition-opacity duration-300 md:group-hover:opacity-0"
+                  className="object-cover object-center transition-opacity duration-300 md:group-hover:opacity-0"
                   fallbackInitials={coach.initials}
                 />
 
