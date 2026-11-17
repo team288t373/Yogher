@@ -66,9 +66,9 @@ function getReelThumbnail(reel: VideoReel): string {
   return "";
 }
 
-export default function VideoReelsSection() {
+export default function VideoReelsSection({ initialTab = "feedback" }: { initialTab?: "classes" | "feedback" } = {}) {
   const { classReels = [], videoReels = [] } = yogherContent;
-  const [activeTab, setActiveTab] = useState<"classes" | "feedback">("classes");
+  const [activeTab, setActiveTab] = useState<"classes" | "feedback">(initialTab);
   const [selectedReel, setSelectedReel] = useState<VideoReel | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -115,9 +115,9 @@ export default function VideoReelsSection() {
 
   return (
     <section
-      id="video-reviews"
+      id="reviews"
       aria-label="Inside Our Classes and Client Feedback Videos"
-      className="w-full py-12 sm:py-16 bg-gradient-to-b from-softpink via-white to-softpink/40 border-b border-cotton/50 overflow-hidden"
+      className="w-full py-16 sm:py-24 bg-gradient-to-b from-softpink via-white to-softpink/40 border-y border-cotton/50 overflow-hidden scroll-mt-20 sm:scroll-mt-24"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Header with Title and Scroll Controls */}
@@ -168,28 +168,8 @@ export default function VideoReelsSection() {
           </div>
         </div>
 
-        {/* Clean Two-Pill Tab Switcher — Inside Our Classes vs Client Feedback */}
+        {/* Clean Two-Pill Tab Switcher — Client Feedback vs Inside Our Classes */}
         <div className="flex items-center gap-2 sm:gap-3 mb-6">
-          <button
-            type="button"
-            onClick={() => {
-              setActiveTab("classes");
-              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-            }}
-            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              activeTab === "classes"
-                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
-                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
-            }`}
-          >
-            <span>Inside Our Classes</span>
-            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
-              activeTab === "classes" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
-            }`}>
-              {classReels.length}
-            </span>
-          </button>
-
           <button
             type="button"
             onClick={() => {
@@ -207,6 +187,26 @@ export default function VideoReelsSection() {
               activeTab === "feedback" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
             }`}>
               {videoReels.length}
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setActiveTab("classes");
+              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+            }}
+            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              activeTab === "classes"
+                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
+                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
+            }`}
+          >
+            <span>Inside Our Classes</span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+              activeTab === "classes" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
+            }`}>
+              {classReels.length}
             </span>
           </button>
         </div>
