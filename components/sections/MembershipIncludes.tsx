@@ -17,11 +17,11 @@ export default function MembershipIncludes() {
     <section className="w-full py-14 sm:py-20 bg-softpink">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="bg-cotton/60 p-6 sm:p-10 lg:p-12 rounded-card-xl border border-pink/30 shadow-sm">
-          {/* Mobile Photo Banner: Square aspect ratio so the full yoga posture is visible without cropping */}
-          <div className="lg:hidden relative w-full aspect-square max-w-[420px] mx-auto rounded-[24px] overflow-hidden bg-cotton mb-8 shadow-sm">
+          {/* Mobile Photo Banner: Matches 1361/1156 laptop screen ratio */}
+          <div className="lg:hidden relative w-full aspect-[1361/1156] max-w-[460px] mx-auto rounded-[24px] overflow-hidden bg-black mb-8 shadow-md border border-cotton/40">
             <SafeImage
               src={IMAGES.membership}
-              alt="YogHer certified coach in yoga practice"
+              alt="Live Google Meet yoga session on HP laptop"
               fill
               loading="lazy"
               sizes="(max-width: 1023px) 100vw, 600px"
@@ -30,12 +30,12 @@ export default function MembershipIncludes() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Desktop Left Column: Photo (rounded 28px, aspect-square for 1:1 original photo) */}
+            {/* Desktop Left Column: Photo (rounded 28px, aspect-[1361/1156] for full laptop screen) */}
             <div className="hidden lg:block lg:col-span-5">
-              <div className="relative w-full aspect-square rounded-[28px] overflow-hidden bg-cotton shadow-md">
+              <div className="relative w-full aspect-[1361/1156] rounded-[28px] overflow-hidden bg-black shadow-lg border border-cotton/40">
                 <SafeImage
                   src={IMAGES.membership}
-                  alt="YogHer certified coach in yoga practice"
+                  alt="Live Google Meet yoga session on HP laptop"
                   fill
                   loading="lazy"
                   sizes="(min-width: 1024px) 460px, 50vw"

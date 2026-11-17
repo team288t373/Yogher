@@ -19,6 +19,7 @@
 *.pem
 *.zip
 scratch/
+Virtual Yoga Class on HP Laptop.png
 *.pdf
 !public/downloads/*.pdf
 WhatsApp*.jpeg

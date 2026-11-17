@@ -99,7 +99,7 @@ export const IMAGES = {
   ] as CoachStripItem[],
 
   // Membership includes
-  membership: `${CLOUDINARY_BASE}v1779168385/yogher/instructorsgallery/zxvz6srin2fjdeir5ph5.png`,
+  membership: "/images/virtual-yoga-class-laptop.png",
 
   // Journal
   journal: [
