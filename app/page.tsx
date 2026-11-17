@@ -4,7 +4,6 @@ import HeroYogher from "@/components/sections/HeroYogher";
 import StatsBand from "@/components/sections/StatsBand";
 import Programs from "@/components/sections/Programs";
 import HowItWorks from "@/components/sections/HowItWorks";
-import CoachStrip from "@/components/sections/CoachStrip";
 import MembershipIncludes from "@/components/sections/MembershipIncludes";
 import Coaches from "@/components/sections/Coaches";
 import VideoReelsSection from "@/components/sections/VideoReelsSection";
@@ -37,19 +36,16 @@ export default function YogherPage() {
         {/* 6. How it works */}
         <HowItWorks />
 
-        {/* 7. On the mat with our coaches marquee strip */}
-        <CoachStrip />
-
-        {/* 8. Every membership includes */}
+        {/* 7. Every membership includes */}
         <MembershipIncludes />
 
-        {/* 9. Coaches (Updated with all certified women coaches) */}
+        {/* 8. Coaches (Updated with all certified women coaches) */}
         <Coaches />
 
-        {/* 10. Video Reviews & Feedback (Shifted down in place of text testimonials) */}
+        {/* 9. Video Reviews & Feedback (Shifted down in place of text testimonials) */}
         <VideoReelsSection initialTab="feedback" />
 
-        {/* 11. Plans (Group & 1-on-1 toggle) */}
+        {/* 10. Plans (Group & 1-on-1 toggle) */}
         <PlansSection />
 
         {/* 12. From our journal */}
