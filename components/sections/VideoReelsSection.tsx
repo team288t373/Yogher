@@ -2,8 +2,14 @@
 
 import { useState, useRef, useEffect } from "react";
 import SafeImage from "../SafeImage";
-import { yogherContent, siteConfig } from "@/lib/content";
+import { yogherContent } from "@/lib/content";
 import type { VideoReel } from "@/lib/types";
+
+interface VideoReelsSectionProps {
+  mode?: "classes" | "feedback" | "all";
+  id?: string;
+  initialTab?: "classes" | "feedback";
+}
 
 function extractYouTubeId(urlOrId?: string): string | null {
   if (!urlOrId) return null;
@@ -66,13 +72,28 @@ function getReelThumbnail(reel: VideoReel): string {
   return "";
 }
 
-export default function VideoReelsSection({ initialTab = "feedback" }: { initialTab?: "classes" | "feedback" } = {}) {
+export default function VideoReelsSection({
+  mode = "all",
+  id,
+  initialTab,
+}: VideoReelsSectionProps) {
   const { classReels = [], videoReels = [] } = yogherContent;
-  const [activeTab, setActiveTab] = useState<"classes" | "feedback">(initialTab);
+
+  const resolvedInitialTab =
+    mode === "classes" ? "classes" : mode === "feedback" ? "feedback" : initialTab || "feedback";
+
+  const [activeTab, setActiveTab] = useState<"classes" | "feedback">(resolvedInitialTab);
   const [selectedReel, setSelectedReel] = useState<VideoReel | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const currentReels = activeTab === "classes" ? classReels : videoReels;
+  const currentReels =
+    mode === "classes"
+      ? classReels
+      : mode === "feedback"
+      ? videoReels
+      : activeTab === "classes"
+      ? classReels
+      : videoReels;
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -113,11 +134,44 @@ export default function VideoReelsSection({ initialTab = "feedback" }: { initial
     return null;
   }
 
+  const isClassesOnly = mode === "classes";
+  const isFeedbackOnly = mode === "feedback";
+
+  const eyebrowText = isClassesOnly
+    ? "Live Google Meet Sessions"
+    : isFeedbackOnly
+    ? "Real Member Stories"
+    : activeTab === "classes"
+    ? "Live Google Meet Sessions"
+    : "Real Client Feedback";
+
+  const headingText = isClassesOnly
+    ? "See what happens inside our live Google Meet batches."
+    : isFeedbackOnly
+    ? "Real feedback from women who practice with YogHer."
+    : activeTab === "classes"
+    ? "See what happens inside our live Google Meet batches."
+    : "Real feedback from women who practice with YogHer.";
+
+  const descText = isClassesOnly
+    ? "Real posture corrections, interactive live energy, and coach guidance in every session."
+    : isFeedbackOnly
+    ? "Authentic transformation stories, weight loss results, and daily habit breakthroughs."
+    : activeTab === "classes"
+    ? "Real posture corrections, interactive live energy, and coach guidance in every session."
+    : "Authentic transformation stories, weight loss results, and daily habit breakthroughs.";
+
+  const sectionId = id || (isClassesOnly ? "classes" : isFeedbackOnly ? "reviews" : "reviews");
+
   return (
     <section
-      id="reviews"
-      aria-label="Inside Our Classes and Client Feedback Videos"
-      className="w-full py-16 sm:py-24 bg-gradient-to-b from-softpink via-white to-softpink/40 border-y border-cotton/50 overflow-hidden scroll-mt-20 sm:scroll-mt-24"
+      id={sectionId}
+      aria-label={headingText}
+      className={`w-full py-16 sm:py-24 border-y border-cotton/50 overflow-hidden scroll-mt-20 sm:scroll-mt-24 ${
+        isClassesOnly
+          ? "bg-gradient-to-b from-white via-softpink/30 to-white"
+          : "bg-gradient-to-b from-softpink via-white to-softpink/40"
+      }`}
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Header with Title and Scroll Controls */}
@@ -125,21 +179,13 @@ export default function VideoReelsSection({ initialTab = "feedback" }: { initial
           <div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cotton text-bordeaux text-xs font-bold uppercase tracking-eyebrow mb-2">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-              <span>
-                {activeTab === "classes"
-                  ? "Live Google Meet Sessions"
-                  : "Real Client Feedback"}
-              </span>
+              <span>{eyebrowText}</span>
             </div>
             <h2 className="text-[26px] sm:text-[34px] md:text-[40px] font-extrabold tracking-tightest text-bordeaux leading-tight">
-              {activeTab === "classes"
-                ? "See what happens inside our live Google Meet batches."
-                : "Real feedback from women who practice with YogHer."}
+              {headingText}
             </h2>
             <p className="text-muted text-sm sm:text-base mt-1.5 max-w-xl">
-              {activeTab === "classes"
-                ? "Real posture corrections, interactive live energy, and coach guidance in every session."
-                : "Authentic transformation stories, weight loss results, and daily habit breakthroughs."}
+              {descText}
             </p>
           </div>
 
@@ -168,48 +214,50 @@ export default function VideoReelsSection({ initialTab = "feedback" }: { initial
           </div>
         </div>
 
-        {/* Clean Two-Pill Tab Switcher — Client Feedback vs Inside Our Classes */}
-        <div className="flex items-center gap-2 sm:gap-3 mb-6">
-          <button
-            type="button"
-            onClick={() => {
-              setActiveTab("feedback");
-              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-            }}
-            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              activeTab === "feedback"
-                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
-                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
-            }`}
-          >
-            <span>Client Feedback</span>
-            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
-              activeTab === "feedback" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
-            }`}>
-              {videoReels.length}
-            </span>
-          </button>
+        {/* Optional Tab Switcher — only shown if mode === "all" */}
+        {mode === "all" && (
+          <div className="flex items-center gap-2 sm:gap-3 mb-6">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab("feedback");
+                if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+              }}
+              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeTab === "feedback"
+                  ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
+                  : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
+              }`}
+            >
+              <span>Client Feedback</span>
+              <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+                activeTab === "feedback" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
+              }`}>
+                {videoReels.length}
+              </span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => {
-              setActiveTab("classes");
-              if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-            }}
-            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              activeTab === "classes"
-                ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
-                : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
-            }`}
-          >
-            <span>Inside Our Classes</span>
-            <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
-              activeTab === "classes" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
-            }`}>
-              {classReels.length}
-            </span>
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab("classes");
+                if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+              }}
+              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeTab === "classes"
+                  ? "bg-bordeaux text-white shadow-md ring-2 ring-bordeaux/20 scale-[1.02]"
+                  : "bg-white text-bordeaux/80 hover:text-bordeaux border border-cotton hover:bg-cotton/60"
+              }`}
+            >
+              <span>Inside Our Classes</span>
+              <span className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+                activeTab === "classes" ? "bg-white/20 text-cotton" : "bg-cotton text-bordeaux/70"
+              }`}>
+                {classReels.length}
+              </span>
+            </button>
+          </div>
+        )}
 
         {/* 9:16 Video Reels Horizontal Scroll / Responsive Grid */}
         <div
@@ -320,70 +368,45 @@ export default function VideoReelsSection({ initialTab = "feedback" }: { initial
                   );
                 }
 
-                // Placeholder / Preview State when user hasn't provided links yet
                 return (
-                  <div className="relative w-full h-full flex flex-col items-center justify-between p-6 text-center">
-                    <SafeImage
-                      src={selectedReel.thumbnail}
-                      alt={selectedReel.title}
-                      fill
-                      className="object-cover opacity-40"
-                    />
-                    <div className="relative z-10 w-full flex justify-end">
-                      <span className="px-2.5 py-1 rounded bg-black/70 text-[11px] font-medium text-cotton">
-                        {selectedReel.duration}
-                      </span>
+                  <div className="p-6 text-center flex flex-col items-center justify-center gap-3">
+                    <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+                      <svg className="w-8 h-8 fill-current translate-x-0.5 text-white" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
-
-                    <div className="relative z-10 max-w-xs space-y-3">
-                      <div className="w-16 h-16 rounded-full bg-red-600 mx-auto flex items-center justify-center shadow-xl ring-4 ring-white/20">
-                        <svg className="w-8 h-8 fill-current translate-x-0.5 text-white" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-base font-extrabold text-white">
-                        {selectedReel.title}
-                      </h4>
-                      <p className="text-xs text-cotton/90 leading-relaxed">
-                        {selectedReel.clientOrCoach}
-                      </p>
-                    </div>
-
-                    <div className="relative z-10 w-full pt-3">
-                      <a
-                        href={siteConfig.yogherWhatsAppUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all"
-                      >
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.961.882 2.796.882 3.183 0 5.769-2.587 5.77-5.767s-2.587-5.768-5.77-5.768z" />
-                        </svg>
-                        <span>Request Video on WhatsApp</span>
-                      </a>
-                    </div>
+                    <h4 className="text-base font-extrabold text-white">
+                      {selectedReel.title}
+                    </h4>
+                    <p className="text-xs text-cotton/90 leading-relaxed">
+                      {selectedReel.clientOrCoach}
+                    </p>
                   </div>
                 );
               })()}
             </div>
 
-            {/* Modal Footer CTA */}
+            {/* Modal Footer CTA -> Direct WhatsApp with context */}
             <div className="p-3.5 sm:p-4 bg-bordeaux border-t border-white/10 shrink-0 flex items-center justify-between gap-3">
               <div className="min-w-0">
                 <p className="text-xs font-semibold text-cotton truncate">
-                  Want to attend a live Google Meet batch?
+                  {selectedReel.tag === "Inside Our Classes"
+                    ? "Want to join this live Google Meet batch?"
+                    : "Ready to start your YogHer journey?"}
                 </p>
                 <p className="text-[11px] text-white/70">
                   Batches run Mon to Sat from 5:00 AM to 9:00 PM IST
                 </p>
               </div>
               <a
-                href={siteConfig.yogherWhatsAppUrl}
+                href={`https://wa.me/918679244416?text=${encodeURIComponent(
+                  `Hi YogHer! I watched the video "${selectedReel.title}" and would like to join your live Google Meet batches. Please share details.`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 px-4 py-2 rounded-full bg-white text-bordeaux hover:bg-cotton font-extrabold text-xs tracking-wide transition-all shadow-sm"
+                className="shrink-0 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs tracking-wide transition-all shadow-sm"
               >
-                Join Batch
+                Join on WhatsApp
               </a>
             </div>
           </div>

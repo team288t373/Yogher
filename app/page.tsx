@@ -27,25 +27,28 @@ export default function YogherPage() {
         {/* 3. Hero with free diet plan lead form */}
         <HeroYogher />
 
-        {/* 4. Stats band */}
+        {/* 4. Inside Our Meeting / Google Meet live sessions (Right after Form) */}
+        <VideoReelsSection mode="classes" id="classes" />
+
+        {/* 5. Stats band */}
         <StatsBand />
 
-        {/* 5. Programs */}
+        {/* 6. Programs */}
         <Programs />
 
-        {/* 6. How it works */}
+        {/* 7. How it works */}
         <HowItWorks />
 
-        {/* 7. Every membership includes */}
+        {/* 8. Every membership includes */}
         <MembershipIncludes />
 
-        {/* 8. Coaches (Updated with all certified women coaches) */}
+        {/* 9. Coaches (Updated with all certified women coaches) */}
         <Coaches />
 
-        {/* 9. Video Reviews & Feedback (Shifted down in place of text testimonials) */}
-        <VideoReelsSection initialTab="feedback" />
+        {/* 10. Client Feedback Videos (Neeche, right before Plans) */}
+        <VideoReelsSection mode="feedback" id="reviews" />
 
-        {/* 10. Plans (Group & 1-on-1 toggle) */}
+        {/* 11. Plans (Group & 1-on-1 toggle) */}
         <PlansSection />
 
         {/* 12. From our journal */}
