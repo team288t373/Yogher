@@ -74,8 +74,8 @@ export default function Footer({ brand }: FooterProps) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      Pregnancy & pre-natal yoga
+                    <Link href="#plans" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                      1-on-1 Personal Yoga
                     </Link>
                   </li>
                 </>
