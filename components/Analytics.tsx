@@ -4,7 +4,6 @@ import Script from "next/script";
 
 export default function Analytics() {
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
-  const gtagId = process.env.NEXT_PUBLIC_GTAG_ID;
 
   return (
     <>
@@ -27,29 +26,6 @@ export default function Analytics() {
             `,
           }}
         />
-      )}
-
-      {gtagId && (
-        <>
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-          />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gtagId}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }}
-          />
-        </>
       )}
     </>
   );
