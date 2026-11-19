@@ -1,18 +1,11 @@
-"use client";
-
-import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import MobileMenu from "./MobileMenu";
 
 interface HeaderProps {
   brand: "yogher" | "glowher";
 }
 
 export default function Header({ brand }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
-
   const isYogher = brand === "yogher";
 
   return (
@@ -101,7 +94,7 @@ export default function Header({ brand }: HeaderProps) {
           )}
         </nav>
 
-        {/* Right: CTA & Hamburger */}
+        {/* Right: CTA */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <Link
             href={isYogher ? "#plans" : "#pricing"}
@@ -109,36 +102,8 @@ export default function Header({ brand }: HeaderProps) {
           >
             {isYogher ? "See plans from ₹1,199" : "Start at ₹999"}
           </Link>
-
-          {/* Mobile hamburger button */}
-          <button
-            ref={hamburgerRef}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            className="md:hidden w-10 h-10 rounded-full bg-cotton flex items-center justify-center text-bordeaux hover:bg-cotton/80 transition-colors focus:outline-none focus:ring-2 focus:ring-bordeaux shrink-0"
-          >
-            {mobileMenuOpen ? (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
         </div>
       </div>
-
-      {/* Accessible slide-down / modal mobile menu */}
-      <MobileMenu
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-        brand={brand}
-        triggerRef={hamburgerRef}
-      />
     </header>
   );
 }
