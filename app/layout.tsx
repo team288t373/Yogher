@@ -86,7 +86,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/brand/yogher-logo.png" sizes="any" />
         {/* Google Tag Manager */}
-        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KLPCCBJZ" />
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6L27NP2" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -101,7 +101,7 @@ export default function RootLayout({
         {/* Google Tag Manager (noscript fallback) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KLPCCBJZ"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M6L27NP2"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
