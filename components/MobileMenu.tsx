@@ -6,11 +6,11 @@ import Link from "next/link";
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  brand: "yogher" | "glowher";
+  brand?: "yogher";
   triggerRef: React.RefObject<HTMLButtonElement>;
 }
 
-export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape key, trap focus, lock body scroll, and notify StickyMobileCTA
@@ -68,25 +68,13 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
 
   if (!isOpen) return null;
 
-  const yogherLinks: { label: string; href: string; isPage?: boolean }[] = [
+  const links: { label: string; href: string }[] = [
     { label: "Programs", href: "#programs" },
     { label: "How it works", href: "#how" },
     { label: "Coaches", href: "#coaches" },
     { label: "Reviews", href: "#reviews" },
     { label: "Plans", href: "#plans" },
   ];
-
-  const glowherLinks: { label: string; href: string; isPage?: boolean }[] = [
-    { label: "Benefits", href: "#benefits" },
-    { label: "Weekly Rhythm", href: "#rhythm" },
-    { label: "Client Results", href: "#results" },
-    { label: "Guides & Downloads", href: "#downloads" },
-    { label: "Pricing", href: "#pricing" },
-  ];
-
-  const links = brand === "yogher" ? yogherLinks : glowherLinks;
-  const ctaHref = brand === "yogher" ? "#plans" : "#pricing";
-  const ctaText = brand === "yogher" ? "See plans from ₹1,199" : "Start at ₹999";
 
   const handleLinkClick = () => {
     onClose();
@@ -119,7 +107,7 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
         <div className="flex items-center justify-between pb-4 border-b border-cotton">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-extrabold tracking-tightest text-bordeaux">
-              {brand === "yogher" ? "YogHer" : "GlowHer"}
+              YogHer
             </span>
           </div>
 
@@ -145,18 +133,9 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
               key={link.label}
               href={link.href}
               onClick={handleLinkClick}
-              className={`text-lg font-bold transition-colors py-2 px-1 min-h-[44px] flex items-center ${
-                link.isPage
-                  ? "text-bordeaux flex items-center justify-between border-t border-cotton/60 pt-4"
-                  : "text-bordeaux hover:text-muted"
-              }`}
+              className="text-lg font-bold transition-colors py-2 px-1 min-h-[44px] flex items-center text-bordeaux hover:text-muted"
             >
               <span>{link.label}</span>
-              {link.isPage && (
-                <span className="text-xs font-semibold px-2.5 py-1 bg-cotton text-bordeaux rounded-full">
-                  Explore
-                </span>
-              )}
             </Link>
           ))}
         </nav>
@@ -164,11 +143,11 @@ export default function MobileMenu({ isOpen, onClose, brand, triggerRef }: Mobil
         {/* Action Button */}
         <div className="pt-2">
           <Link
-            href={ctaHref}
+            href="#plans"
             onClick={handleLinkClick}
             className="w-full min-h-[48px] flex items-center justify-center rounded-full bg-bordeaux text-white font-bold text-sm tracking-wide shadow-md hover:opacity-95 transition-all"
           >
-            {ctaText}
+            See plans from ₹1,199
           </Link>
         </div>
       </div>

@@ -3,12 +3,10 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 
 interface FooterProps {
-  brand: "yogher" | "glowher";
+  brand?: "yogher";
 }
 
-export default function Footer({ brand }: FooterProps) {
-  const isYogher = brand === "yogher";
-
+export default function Footer({ brand = "yogher" }: FooterProps) {
   return (
     <footer className="w-full bg-bordeaux text-softpink pt-16 pb-32 md:pb-16 border-t border-bordeaux-light">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -27,10 +25,10 @@ export default function Footer({ brand }: FooterProps) {
               />
               <div>
                 <span className="text-3xl font-extrabold tracking-tightest text-white leading-none block">
-                  {isYogher ? "YogHer" : "GlowHer"}
+                  YogHer
                 </span>
                 <span className="block text-xs uppercase tracking-widest text-cotton font-semibold mt-1">
-                  {isYogher ? "Live online yoga for Indian women" : "Live face yoga by YogHer"}
+                  Live online yoga for Indian women
                 </span>
               </div>
             </div>
@@ -40,7 +38,7 @@ export default function Footer({ brand }: FooterProps) {
             </p>
             <div className="pt-2">
               <a
-                href={isYogher ? siteConfig.yogherWhatsAppUrl : siteConfig.glowherWhatsAppUrl}
+                href={siteConfig.yogherWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2.5 min-h-[44px] bg-cotton text-bordeaux rounded-full hover:bg-white transition-colors"
@@ -50,63 +48,32 @@ export default function Footer({ brand }: FooterProps) {
             </div>
           </div>
 
-          {/* Programs / Sub-brands */}
+          {/* Programs */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-eyebrow text-cotton mb-4">
               Explore Programs
             </h3>
             <ul className="space-y-2 text-sm">
-              {isYogher ? (
-                <>
-                  <li>
-                    <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      Weight loss & fat loss
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      PCOS and irregular periods
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      Body toning & fitness
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#plans" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      1-on-1 Personal Yoga
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li>
-                    <Link href="#benefits" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      Why face yoga
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#session" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      30-minute daily session
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#pricing" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
-                      Pricing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/"
-                      className="inline-flex items-center gap-1.5 text-cotton font-bold hover:underline min-h-[44px]"
-                    >
-                      <span>All YogHer programs</span>
-                      <span className="text-xs">→</span>
-                    </Link>
-                  </li>
-                </>
-              )}
+              <li>
+                <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                  Weight loss & fat loss
+                </Link>
+              </li>
+              <li>
+                <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                  PCOS and irregular periods
+                </Link>
+              </li>
+              <li>
+                <Link href="#programs" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                  Body toning & fitness
+                </Link>
+              </li>
+              <li>
+                <Link href="#plans" className="text-softpink hover:text-white transition-colors min-h-[44px] flex items-center">
+                  1-on-1 Personal Yoga
+                </Link>
+              </li>
             </ul>
           </div>
 

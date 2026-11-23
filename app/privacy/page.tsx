@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         </p>
         <div className="bg-white p-8 rounded-card border border-cotton shadow-sm space-y-4 text-bordeaux/90 leading-relaxed">
           <p>
-            At YogHer and GlowHer, your privacy is paramount. We only collect details necessary to schedule your live sessions, provide your customized ghar ka khana diet chart, and communicate critical batch updates over WhatsApp.
+            At YogHer, your privacy is paramount. We only collect details necessary to schedule your live sessions, provide your customized ghar ka khana diet chart, and communicate critical batch updates over WhatsApp.
           </p>
           <p className="font-semibold text-bordeaux">
             Detailed formal policy document is coming soon.
