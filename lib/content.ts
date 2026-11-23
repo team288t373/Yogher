@@ -139,8 +139,20 @@ export const IMAGES = {
       src: `${CLOUDINARY_BASE}v1785862762/yogher/instructors/albytawz1le5e1u6f68k.png`,
     },
     {
+      name: "Amrita Singh",
+      src: `${CLOUDINARY_BASE}v1779257165/yogher/instructors/kkpwspxlkmmw5hvcka2c.jpg`,
+    },
+    {
       name: "Ithieeka",
       src: `${CLOUDINARY_BASE}v1780150081/yogher/instructors/zrsn3rkt41xfu72ysjwd.png`,
+    },
+    {
+      name: "Diksha Pandey",
+      src: `${CLOUDINARY_BASE}v1780151747/yogher/instructors/g400plimtlfxpjmqxls7.png`,
+    },
+    {
+      name: "Lipakshi Kumawat",
+      src: `${CLOUDINARY_BASE}v1779188490/yogher/instructors/odz8mluv4w4pmt5r14oh.jpg`,
     },
   ],
 
@@ -784,7 +796,7 @@ export const glowherContent = {
   ] as SessionStep[],
   coaches: [
     {
-      name: "Manisha Chandani",
+      name: "Manisha Chandani (Manisha Ma'am)",
       role: "Face Yoga certified by Yoga Alliance",
       experience: "PGDYT Yogkulam, practising since 2018",
       image: `${CLOUDINARY_BASE}v1785862762/yogher/instructors/albytawz1le5e1u6f68k.png`,
@@ -792,12 +804,79 @@ export const glowherContent = {
       gallery: IMAGES.glowherCoachGalleries.manisha,
     },
     {
-      name: "Ithieeka",
+      name: "Amrita Singh Gautam (Amrita Ma'am)",
+      role: "Face Yoga & Therapeutic Wellness Specialist",
+      experience: "Certified Face Yoga Instructor · 2+ yrs exp",
+      image: `${CLOUDINARY_BASE}v1779257165/yogher/instructors/kkpwspxlkmmw5hvcka2c.jpg`,
+      initials: "AS",
+      gallery: [
+        `${CLOUDINARY_BASE}v1779257210/yogher/instructorsgallery/weovpbirmfbqu1rlwpsm.jpg`,
+        `${CLOUDINARY_BASE}v1779257187/yogher/instructorsgallery/dpygk3mdwo2rthia4avv.jpg`,
+        `${CLOUDINARY_BASE}v1779258686/yogher/instructorsgallery/xdgxxcdiexzuvitse5aa.jpg`,
+      ],
+    },
+    {
+      name: "Nancy Khanna",
+      role: "Face Yoga & Facial Fitness Specialist",
+      experience: "Certified Face Yoga Coach · Holistic Wellness",
+      image: "",
+      initials: "NK",
+    },
+    {
+      name: "Ithieeka (Ithieeka Ma'am)",
       role: "Internationally certified in Face Yoga",
-      experience: "PG in Yogic Science Pune, 3+ years",
+      experience: "PG in Yogic Science Pune · 3+ yrs exp",
       image: `${CLOUDINARY_BASE}v1780150081/yogher/instructors/zrsn3rkt41xfu72ysjwd.png`,
       initials: "IT",
       gallery: IMAGES.glowherCoachGalleries.ithieeka,
+    },
+    {
+      name: "Diksha Pandey",
+      role: "Face Yoga & Facial Sculpting Instructor",
+      experience: "Certified Face Yoga Specialist · Holistic Therapy",
+      image: `${CLOUDINARY_BASE}v1780151747/yogher/instructors/g400plimtlfxpjmqxls7.png`,
+      initials: "DP",
+      gallery: [
+        `${CLOUDINARY_BASE}v1780151754/yogher/instructorsgallery/uvvcdnycqssdkp3mxiis.png`,
+        `${CLOUDINARY_BASE}v1780151495/yogher/instructorsgallery/mld7oc5rnnbvteiouxqk.png`,
+        `${CLOUDINARY_BASE}v1780151251/yogher/instructorsgallery/swhz8oo5cnjjv22gndbz.png`,
+      ],
+    },
+    {
+      name: "Lipakshi Kumawat (Lipakshi Ma'am)",
+      role: "Face Yoga & Facial Muscle Toning Expert",
+      experience: "Certified Face Yoga Coach · 3+ yrs exp",
+      image: `${CLOUDINARY_BASE}v1779188490/yogher/instructors/odz8mluv4w4pmt5r14oh.jpg`,
+      initials: "LK",
+      gallery: [
+        `${CLOUDINARY_BASE}v1779189045/yogher/instructorsgallery/qb3yxknuqzwwk2nphelw.jpg`,
+        `${CLOUDINARY_BASE}v1779185210/yogher/instructorsgallery/fy0v9dcbv0ncf05vk9ns.png`,
+        `${CLOUDINARY_BASE}v1779168146/yogher/instructorsgallery/wdr4kk6jlclmhiawx353.png`,
+      ],
+    },
+    {
+      name: "Sonali Lingwal (Sonali Ma'am)",
+      role: "Face Yoga & Yogic Science Instructor",
+      experience: "B.Sc. Yogic Science · Certified TTC",
+      image: `${CLOUDINARY_BASE}v1780150467/yogher/instructors/ut8linkwzi6brrzwceze.png`,
+      initials: "SL",
+      gallery: [
+        `${CLOUDINARY_BASE}v1780150405/yogher/instructorsgallery/gir3lswiqalvrbkdntyd.png`,
+        `${CLOUDINARY_BASE}v1780150216/yogher/instructorsgallery/wykni5lyqllujuyj7ehp.png`,
+        `${CLOUDINARY_BASE}v1780150970/yogher/instructorsgallery/epsrwspvk16ks6hqlgxa.png`,
+      ],
+    },
+    {
+      name: "Renu Chauhan (Renu Ma'am)",
+      role: "Face Yoga & Breathwork (Pranayama) Specialist",
+      experience: "B.Sc. Yogic Science · 3+ yrs exp",
+      image: `${CLOUDINARY_BASE}v1780150607/yogher/instructors/sqphacwmt4m8si9yjefa.png`,
+      initials: "RC",
+      gallery: [
+        `${CLOUDINARY_BASE}v1780150612/yogher/instructorsgallery/qr1an35dz00efqohhiip.png`,
+        `${CLOUDINARY_BASE}v1780150085/yogher/instructorsgallery/psqm3mray7drt14e0zrv.png`,
+        `${CLOUDINARY_BASE}v1780152083/yogher/instructorsgallery/zoesqezqjvufrfnezqbo.png`,
+      ],
     },
   ] as Coach[],
   transformations: [

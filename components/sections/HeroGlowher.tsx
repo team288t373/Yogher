@@ -25,7 +25,7 @@ export default function HeroGlowher() {
         ))}
       </div>
       <p className="text-xs sm:text-sm font-bold text-bordeaux/90 leading-snug">
-        Live with certified face yoga coaches <span className="font-extrabold text-bordeaux">Manisha</span> and <span className="font-extrabold text-bordeaux">Ithieeka</span>
+        Live with certified face yoga coaches <span className="font-extrabold text-bordeaux">Manisha</span>, <span className="font-extrabold text-bordeaux">Amrita</span>, <span className="font-extrabold text-bordeaux">Ithieeka</span>, <span className="font-extrabold text-bordeaux">Lipakshi</span> &amp; team
       </p>
     </div>
   );
