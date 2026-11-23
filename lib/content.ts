@@ -143,12 +143,16 @@ export const IMAGES = {
       src: `${CLOUDINARY_BASE}v1779257165/yogher/instructors/kkpwspxlkmmw5hvcka2c.jpg`,
     },
     {
+      name: "Nancy Khanna",
+      src: "/images/coaches/nancy-khanna.png",
+    },
+    {
       name: "Ithieeka",
       src: `${CLOUDINARY_BASE}v1780150081/yogher/instructors/zrsn3rkt41xfu72ysjwd.png`,
     },
     {
       name: "Diksha Pandey",
-      src: `${CLOUDINARY_BASE}v1780151747/yogher/instructors/g400plimtlfxpjmqxls7.png`,
+      src: "/images/coaches/diksha-pandey.png",
     },
     {
       name: "Lipakshi Kumawat",
@@ -813,7 +817,7 @@ export const glowherContent = {
       name: "Nancy Khanna",
       role: "Face Yoga Specialist",
       experience: "Certified Coach",
-      image: "",
+      image: "/images/coaches/nancy-khanna.png",
       initials: "NK",
     },
     {
@@ -827,7 +831,7 @@ export const glowherContent = {
       name: "Diksha Pandey",
       role: "Face Yoga Instructor",
       experience: "Certified Specialist",
-      image: `${CLOUDINARY_BASE}v1780151747/yogher/instructors/g400plimtlfxpjmqxls7.png`,
+      image: "/images/coaches/diksha-pandey.png",
       initials: "DP",
     },
     {
