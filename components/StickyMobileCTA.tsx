@@ -11,7 +11,7 @@ export default function StickyMobileCTA({ brand = "yogher" }: StickyMobileCTAPro
   const ctaText = "Join from ₹1,199";
   const targetHref = "#plans";
   const whatsappJoinUrl =
-    "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.";
+    "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.";
   const whatsappUrl = siteConfig.yogherWhatsAppUrl;
 
   const [formInView, setFormInView] = useState(true);

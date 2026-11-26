@@ -134,9 +134,9 @@ export const IMAGES = {
 };
 
 export const siteConfig = {
-  phone: "+91 86792 44416",
-  phoneRaw: "918679244416",
-  yogherWhatsAppUrl: "https://wa.me/918679244416?text=Hi%20YogHer!%20I'd%20like%20to%20know%20more%20about%20your%20live%20yoga%20batches.",
+  phone: "+91 73029 70977",
+  phoneRaw: "917302970977",
+  yogherWhatsAppUrl: "https://wa.me/917302970977?text=Hi%20YogHer!%20I'd%20like%20to%20know%20more%20about%20your%20live%20yoga%20batches.",
   logoUrl: "/brand/yogher-logo.png",
 };
 
@@ -547,7 +547,7 @@ export const yogherContent = {
       strikePrice: "₹2,000",
       duration: "/ 30 days",
       ctaText: "Start 1-Month Trial",
-      ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.",
       features: [
         "Daily live sessions (Mon to Sat)",
         "Nutrition and lifestyle guide",
@@ -564,7 +564,7 @@ export const yogherContent = {
       duration: "/ 90 days",
       popular: true,
       ctaText: "Get 60% off",
-      ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%203%20Months%20Progress%20(%E2%82%B92%2C399%20%2F%2090%20days).%20Please%20share%20the%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%203%20Months%20Progress%20(%E2%82%B92%2C399%20%2F%2090%20days).%20Please%20share%20the%20joining%20details.",
       features: [
         "Daily live and recorded sessions",
         "Nutrition and lifestyle guide",
@@ -580,7 +580,7 @@ export const yogherContent = {
       strikePrice: "₹12,000",
       duration: "/ 180 days",
       ctaText: "Start Transformation",
-      ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%206%20Months%20Transformation%20(%E2%82%B93%2C599%20%2F%20180%20days).%20Please%20share%20the%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%206%20Months%20Transformation%20(%E2%82%B93%2C599%20%2F%20180%20days).%20Please%20share%20the%20joining%20details.",
       features: [
         "Everything in 3 Months",
         "24x7 WhatsApp support",
@@ -607,7 +607,7 @@ export const yogherContent = {
         price: "₹6,999",
         duration: "/ 30 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%201%20Month%20Assessment%20and%20Foundation%20(%E2%82%B96%2C999%20%2F%2030%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%201%20Month%20Assessment%20and%20Foundation%20(%E2%82%B96%2C999%20%2F%2030%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-3m",
@@ -616,7 +616,7 @@ export const yogherContent = {
         duration: "/ 90 days",
         popular: true,
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%203%20Months%20Transformation%20Program%20(%E2%82%B916%2C999%20%2F%2090%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%203%20Months%20Transformation%20Program%20(%E2%82%B916%2C999%20%2F%2090%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-6m",
@@ -624,7 +624,7 @@ export const yogherContent = {
         price: "₹27,999",
         duration: "/ 180 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%206%20Months%20Deep%20Transformation%20(%E2%82%B927%2C999%20%2F%20180%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%206%20Months%20Deep%20Transformation%20(%E2%82%B927%2C999%20%2F%20180%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-12m",
@@ -632,7 +632,7 @@ export const yogherContent = {
         price: "₹47,999",
         duration: "/ 365 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/918679244416?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%2012%20Months%20Lifestyle%20Coaching%20(%E2%82%B947%2C999%20%2F%20365%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%2012%20Months%20Lifestyle%20Coaching%20(%E2%82%B947%2C999%20%2F%20365%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
     ] as PricingPlan[],
   },
