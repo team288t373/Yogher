@@ -131,12 +131,61 @@ export const IMAGES = {
 
   // YogHer Final CTA background
   yogherFinalCTA: `${CLOUDINARY_BASE}v1780149719/yogher/instructorsgallery/iunmzef0emt0ikdluhgm.png`,
+
+  // GlowHer Hero coaches
+  glowherHeroAvatars: [
+    {
+      name: "Manisha Chandani",
+      src: `${CLOUDINARY_BASE}v1785862762/yogher/instructors/albytawz1le5e1u6f68k.png`,
+    },
+    {
+      name: "Amrita Singh",
+      src: `${CLOUDINARY_BASE}v1779257165/yogher/instructors/kkpwspxlkmmw5hvcka2c.jpg`,
+    },
+    {
+      name: "Nancy Khanna",
+      src: "/images/coaches/nancy-khanna.png",
+    },
+    {
+      name: "Ithieeka",
+      src: `${CLOUDINARY_BASE}v1780150081/yogher/instructors/zrsn3rkt41xfu72ysjwd.png`,
+    },
+    {
+      name: "Diksha Pandey",
+      src: "/images/coaches/diksha-pandey.png",
+    },
+    {
+      name: "Lipakshi Kumawat",
+      src: `${CLOUDINARY_BASE}v1779188490/yogher/instructors/odz8mluv4w4pmt5r14oh.jpg`,
+    },
+  ],
+
+  // GlowHer coach practice galleries
+  glowherCoachGalleries: {
+    manisha: [
+      `${CLOUDINARY_BASE}v1785862763/yogher/instructorsgallery/kew28w8rvyi1u20pau6g.png`,
+      `${CLOUDINARY_BASE}v1785862764/yogher/instructorsgallery/fxpzrudcpe3xfvr9tuhx.png`,
+      `${CLOUDINARY_BASE}v1785862766/yogher/instructorsgallery/ljfmkj6kfbearmsjixrj.png`,
+    ],
+    ithieeka: [
+      `${CLOUDINARY_BASE}v1780150084/yogher/instructorsgallery/pqemeacqpen7zbtc061x.png`,
+      `${CLOUDINARY_BASE}v1780150085/yogher/instructorsgallery/psqm3mray7drt14e0zrv.png`,
+      `${CLOUDINARY_BASE}v1780150090/yogher/instructorsgallery/cpdcmt8xesoqojp2stoi.png`,
+    ],
+  },
+
+  // GlowHer Benefits photo
+  glowherBenefits: `${CLOUDINARY_BASE}v1780150970/yogher/instructorsgallery/epsrwspvk16ks6hqlgxa.png`,
+
+  // GlowHer Final CTA band background
+  glowherFinalCTA: "/images/group-class-live-bg.jpg",
 };
 
 export const siteConfig = {
   phone: "+91 73029 70977",
   phoneRaw: "917302970977",
   yogherWhatsAppUrl: "https://wa.me/917302970977?text=Hi%20YogHer!%20I'd%20like%20to%20know%20more%20about%20your%20live%20yoga%20batches.",
+  glowherWhatsAppUrl: "https://wa.me/917302970977?text=Hi%20GlowHer!%20I'd%20like%20to%20know%20more%20about%20your%20face%20yoga%20classes.",
   logoUrl: "/brand/yogher-logo.png",
 };
 
@@ -545,9 +594,9 @@ export const yogherContent = {
       name: "1 Month Trial",
       price: "₹1,199",
       strikePrice: "₹2,000",
-      duration: "/ 30 days",
+      duration: "for 30 days",
       ctaText: "Start 1-Month Trial",
-      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20%2F%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20start%20the%201-Month%20Live%20Yoga%20Trial%20(%E2%82%B91%2C199%20for%2030%20days).%20Please%20share%20batch%20timings%20and%20joining%20details.",
       features: [
         "Daily live sessions (Mon to Sat)",
         "Nutrition and lifestyle guide",
@@ -561,10 +610,10 @@ export const yogherContent = {
       name: "3 Months Progress",
       price: "₹2,399",
       strikePrice: "₹6,000",
-      duration: "/ 90 days",
+      duration: "for 90 days",
       popular: true,
       ctaText: "Get 60% off",
-      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%203%20Months%20Progress%20(%E2%82%B92%2C399%20%2F%2090%20days).%20Please%20share%20the%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%203%20Months%20Progress%20(%E2%82%B92%2C399%20for%2090%20days).%20Please%20share%20the%20joining%20details.",
       features: [
         "Daily live and recorded sessions",
         "Nutrition and lifestyle guide",
@@ -578,9 +627,9 @@ export const yogherContent = {
       name: "6 Months Transformation",
       price: "₹3,599",
       strikePrice: "₹12,000",
-      duration: "/ 180 days",
+      duration: "for 180 days",
       ctaText: "Start Transformation",
-      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%206%20Months%20Transformation%20(%E2%82%B93%2C599%20%2F%20180%20days).%20Please%20share%20the%20joining%20details.",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27d%20like%20to%20join%20the%20Group%20Live%20Yoga%20Plan%3A%206%20Months%20Transformation%20(%E2%82%B93%2C599%20for%20180%20days).%20Please%20share%20the%20joining%20details.",
       features: [
         "Everything in 3 Months",
         "24x7 WhatsApp support",
@@ -605,34 +654,34 @@ export const yogherContent = {
         id: "p-1m",
         name: "1 Month Assessment and Foundation",
         price: "₹6,999",
-        duration: "/ 30 days",
+        duration: "for 30 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%201%20Month%20Assessment%20and%20Foundation%20(%E2%82%B96%2C999%20%2F%2030%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%201%20Month%20Assessment%20and%20Foundation%20(%E2%82%B96%2C999%20for%2030%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-3m",
         name: "3 Months Transformation Program",
         price: "₹16,999",
-        duration: "/ 90 days",
+        duration: "for 90 days",
         popular: true,
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%203%20Months%20Transformation%20Program%20(%E2%82%B916%2C999%20%2F%2090%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%203%20Months%20Transformation%20Program%20(%E2%82%B916%2C999%20for%2090%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-6m",
         name: "6 Months Deep Transformation",
         price: "₹27,999",
-        duration: "/ 180 days",
+        duration: "for 180 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%206%20Months%20Deep%20Transformation%20(%E2%82%B927%2C999%20%2F%20180%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%206%20Months%20Deep%20Transformation%20(%E2%82%B927%2C999%20for%20180%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
       {
         id: "p-12m",
         name: "12 Months Lifestyle Coaching",
         price: "₹47,999",
-        duration: "/ 365 days",
+        duration: "for 365 days",
         ctaText: "Talk to a fitness advisor",
-        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%2012%20Months%20Lifestyle%20Coaching%20(%E2%82%B947%2C999%20%2F%20365%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
+        ctaHref: "https://wa.me/917302970977?text=Hi%20YogHer!%20I%27m%20interested%20in%20the%201-on-1%20Personal%20Yoga%20Plan%3A%2012%20Months%20Lifestyle%20Coaching%20(%E2%82%B947%2C999%20for%20365%20days).%20Please%20connect%20me%20with%20a%20fitness%20advisor.",
       },
     ] as PricingPlan[],
   },
@@ -661,3 +710,292 @@ export const yogherContent = {
   ] as FaqItem[],
 };
 
+export const glowherContent = {
+  hero: {
+    chip: "Live face yoga • Flexible timings • 30 minutes • Monday to Friday",
+    h1: "Your natural glow, 30 minutes a day.",
+    sub: "Live face yoga with certified women coaches. Lift and tone your facial muscles, release everyday tension, and build a glow routine that needs no products.",
+    ctaPrimary: "Join from ₹999 a month",
+    ctaPrimaryHref: "#pricing",
+    ctaSecondary: "Chat on WhatsApp",
+  },
+  heroPhoto: undefined as HeroPhoto | undefined,
+  quickFacts: [
+    "30 min live session, Monday to Friday",
+    "3 days Face Yoga + 2 days Ayurvedic Abhyanga",
+    "6 batches between 5:30 AM and 8:30 PM IST",
+    "Zero products or tools needed",
+  ],
+  benefits: [
+    {
+      title: "Lifted, toned look",
+      description: "Lifted, toned look for cheeks, jawline and neck.",
+    },
+    {
+      title: "Natural glow",
+      description: "Natural glow from massage and movement, no creams or devices.",
+    },
+    {
+      title: "Less tension",
+      description: "Release forehead, jaw and eye tension from screens and stress.",
+    },
+    {
+      title: "A routine that sticks",
+      description: "A fixed batch and a coach who checks in.",
+    },
+  ],
+  weeklyRhythm: [
+    {
+      day: "Monday",
+      practice: "Face Yoga",
+      title: "Lift & Tone",
+      description: "Targeted facial exercises to tone underlying muscles, lift cheeks and jawline, and set a fresh, active tone for your week.",
+      type: "face-yoga",
+    },
+    {
+      day: "Tuesday",
+      practice: "Abhyanga",
+      title: "Upper Body Lymphatic Flow",
+      description: "A warm-oil Ayurvedic self-massage for neck, shoulders, arms and upper back — easing tension and supporting lymphatic flow toward the face.",
+      type: "abhyanga",
+    },
+    {
+      day: "Wednesday",
+      practice: "Face Yoga",
+      title: "Symmetry & Glow",
+      description: "Mid-week practice to reinforce muscle memory — continued work on facial symmetry, dark circles and skin dullness.",
+      type: "face-yoga",
+    },
+    {
+      day: "Thursday",
+      practice: "Abhyanga",
+      title: "Lower Body Grounding",
+      description: "Warm-oil massage for legs and feet, grounding the nervous system and supporting overall circulation and recovery.",
+      type: "abhyanga",
+    },
+    {
+      day: "Friday",
+      practice: "Face Yoga",
+      title: "Full Facial Flow & Weekend Glow",
+      description: "Closing the week with a full facial routine — leaving you glowing and refreshed heading into the weekend.",
+      type: "face-yoga",
+    },
+  ] as WeeklyDayItem[],
+  sessionBreakdown: [
+    {
+      duration: "5 min",
+      title: "Warm-up",
+      description: "Gentle neck releases, acupressure awakening and rhythmic breathing.",
+    },
+    {
+      duration: "15 min",
+      title: "Face workout",
+      description: "Targeted resistance exercises for forehead, eyes, cheeks, jawline and neck firming.",
+    },
+    {
+      duration: "10 min",
+      title: "Massage and release",
+      description: "Lymphatic drainage and acupressure massage to release tension and boost circulation.",
+    },
+  ] as SessionStep[],
+  coaches: [
+    {
+      name: "Manisha Ma'am",
+      role: "Face Yoga Certified",
+      experience: "Practising since 2018",
+      image: `${CLOUDINARY_BASE}v1785862762/yogher/instructors/albytawz1le5e1u6f68k.png`,
+      initials: "MM",
+    },
+    {
+      name: "Amrita Ma'am",
+      role: "Face Yoga Specialist",
+      experience: "2+ yrs experience",
+      image: `${CLOUDINARY_BASE}v1779257165/yogher/instructors/kkpwspxlkmmw5hvcka2c.jpg`,
+      initials: "AM",
+    },
+    {
+      name: "Nancy Khanna",
+      role: "Face Yoga Specialist",
+      experience: "Certified Coach",
+      image: "/images/coaches/nancy-khanna.png",
+      initials: "NK",
+    },
+    {
+      name: "Ithieeka Ma'am",
+      role: "Face Yoga Specialist",
+      experience: "3+ yrs experience",
+      image: `${CLOUDINARY_BASE}v1780150081/yogher/instructors/zrsn3rkt41xfu72ysjwd.png`,
+      initials: "IM",
+    },
+    {
+      name: "Diksha Pandey",
+      role: "Face Yoga Instructor",
+      experience: "Certified Specialist",
+      image: "/images/coaches/diksha-pandey.png",
+      initials: "DP",
+    },
+    {
+      name: "Lipakshi Ma'am",
+      role: "Face Yoga Expert",
+      experience: "3+ yrs experience",
+      image: `${CLOUDINARY_BASE}v1779188490/yogher/instructors/odz8mluv4w4pmt5r14oh.jpg`,
+      initials: "LM",
+    },
+    {
+      name: "Sonali Ma'am",
+      role: "Face Yoga Instructor",
+      experience: "B.Sc. Yogic Science",
+      image: `${CLOUDINARY_BASE}v1780150467/yogher/instructors/ut8linkwzi6brrzwceze.png`,
+      initials: "SM",
+    },
+    {
+      name: "Renu Ma'am",
+      role: "Face Yoga Specialist",
+      experience: "3+ yrs experience",
+      image: `${CLOUDINARY_BASE}v1780150607/yogher/instructors/sqphacwmt4m8si9yjefa.png`,
+      initials: "RM",
+    },
+  ] as Coach[],
+  transformations: [
+    {
+      id: "t-21-days",
+      title: "21-Day Transformation",
+      duration: "21 Days of Practice",
+      focus: "Visible facial lift & natural radiance",
+      image: "/images/transformations/face-yoga-21-days.jpg",
+      quote: "Consistent practice of just 21 days can be this impactful.",
+    },
+    {
+      id: "t-30-days",
+      title: "30-Day Face Yoga Magic",
+      duration: "30 Days of Practice",
+      focus: "Cheek contouring & defined jawline",
+      image: "/images/transformations/face-yoga-30-days.jpg",
+      quote: "Face yoga magic in just 30 days.",
+    },
+    {
+      id: "t-double-chin",
+      title: "Double Chin & Dark Circles",
+      duration: "Targeted Results",
+      focus: "Under-eye drainage & chin firming",
+      image: "/images/transformations/double-chin-dark-circles.jpg",
+      quote: "Noticeable under-eye drainage and sculpted chin line.",
+    },
+    {
+      id: "t-jawline",
+      title: "Jawline Improvement",
+      duration: "Consistent Practice",
+      focus: "Sharper jawline & reduced puffiness",
+      image: "/images/transformations/jawline-improvement.jpg",
+      quote: "Definite sharpening and posture alignment along the jaw.",
+    },
+    {
+      id: "t-1-month-profile",
+      title: "1-Month Profile Contouring",
+      duration: "1 Month of Practice",
+      focus: "Profile shaping & double chin reduction",
+      image: "/images/transformations/face-yoga-1-month-profile.jpg",
+      quote: "Progress of just a month's practice.",
+    },
+    {
+      id: "t-smile-lift",
+      title: "Cheek Lift & Symmetry",
+      duration: "Consistent Sessions",
+      focus: "Cheek definition & youthful glow",
+      image: "/images/transformations/face-yoga-smile-lift.jpg",
+      quote: "Cheeks visibly lifted and complexion refreshed.",
+    },
+    {
+      id: "t-chat-review",
+      title: "Asymmetrical Face & Acne Recovery",
+      duration: "20 Days of Practice",
+      focus: "Facial symmetry, lifted cheeks & faded dullness",
+      image: "/images/transformations/client-whatsapp-review.jpg",
+      quote: "Before starting her sessions, she had an asymmetrical face along with acne and dullness. After practicing consistently, she noticed a visible glow, lifted cheeks, a more defined jawline, and her original skin tone returning as dullness faded — with much improved facial symmetry.",
+    },
+  ] as TransformationItem[],
+  downloads: [
+    {
+      title: "Face Yoga & Self-Care Journey Guide",
+      pages: "9 Pages (PDF)",
+      description: "Complete weekly rhythm, facial lifting movements, client transformations, and daily practice guidance.",
+      filename: "YogHer-Face-Yoga-Client-Guide.pdf",
+      fileUrl: "/downloads/YogHer-Face-Yoga-Client-Guide.pdf",
+      fileSize: "1.0 MB",
+    },
+    {
+      title: "Understanding Abhyanga Guide",
+      pages: "4 Pages (PDF)",
+      description: "Gentle guide to the Ayurvedic self-massage behind your Tuesday and Thursday sessions for lymphatic drainage and stress relief.",
+      filename: "Abhyanga-YogHer-Understanding.pdf",
+      fileUrl: "/downloads/Abhyanga-YogHer-Understanding.pdf",
+      fileSize: "300 KB",
+    },
+  ] as DownloadItem[],
+  faceYogaPhotos: [] as FaceYogaPhoto[],
+  videoReels: yogherContent.videoReels,
+  testimonials: [] as Testimonial[],
+  sharedFeatures: [
+    "30-minute live sessions",
+    "12 batches throughout the day",
+    "Monday to Friday classes",
+    "Flexible timings, Join as per your convenience",
+    "WhatsApp support",
+  ],
+  plans: [
+    {
+      id: "glow-1m",
+      name: "1 Month Trial",
+      price: "₹999",
+      duration: "for 30 days",
+      ctaText: "Start 1-Month Trial",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20GlowHer!%20I%27d%20like%20to%20join%20the%20Face%20Yoga%20Plan%3A%201%20Month%20Trial%20(%E2%82%B9999%20for%2030%20days).%20Please%20share%20the%20joining%20details.",
+    },
+    {
+      id: "glow-3m",
+      name: "3 Months Progress",
+      price: "₹1,999",
+      duration: "for 90 days",
+      popular: true,
+      monthlyNote: "About ₹666 a month",
+      ctaText: "Join Most Popular",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20GlowHer!%20I%27d%20like%20to%20join%20the%20Face%20Yoga%20Plan%3A%203%20Months%20Progress%20(%E2%82%B91%2C999%20for%2090%20days).%20Please%20share%20the%20joining%20details.",
+    },
+    {
+      id: "glow-6m",
+      name: "6 Months Transformation",
+      price: "₹2,999",
+      duration: "for 180 days",
+      monthlyNote: "About ₹500 a month",
+      ctaText: "Start Transformation",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20GlowHer!%20I%27d%20like%20to%20join%20the%20Face%20Yoga%20Plan%3A%206%20Months%20Transformation%20(%E2%82%B92%2C999%20for%20180%20days).%20Please%20share%20the%20joining%20details.",
+    },
+    {
+      id: "glow-1y",
+      name: "1 Year Consistency",
+      price: "₹4,999",
+      duration: "for 365 days",
+      monthlyNote: "About ₹416 a month",
+      ctaText: "Start 1-Year Journey",
+      ctaHref: "https://wa.me/917302970977?text=Hi%20GlowHer!%20I%27d%20like%20to%20join%20the%20Face%20Yoga%20Plan%3A%201%20Year%20Consistency%20(%E2%82%B94%2C999%20for%20365%20days).%20Please%20share%20the%20joining%20details.",
+    },
+  ] as PricingPlan[],
+  faqs: [
+    {
+      question: "When will I see a difference?",
+      answer: "Most members notice reduced puffiness, improved glow, and relaxed facial muscles within the first 10–14 days of consistent practice. Visible muscle toning, cheek contouring, and neck firming typically appear around 4–6 weeks.",
+    },
+    {
+      question: "Do I need products or tools?",
+      answer: "No. You don't need jade rollers, gua sha stones, or expensive creams. All exercises use only your clean hands and facial resistance. You can apply a few drops of your everyday moisturizer or face oil for smooth gliding during the final massage.",
+    },
+    {
+      question: "What if no batch timing suits me?",
+      answer: "We run 12 batches throughout the day from 5:30 AM to 8:30 PM IST. If you have unique timing constraints, simply message our team on WhatsApp, and we will assist you in finding an accommodating slot or alternative.",
+    },
+    {
+      question: "Can I combine with full-body live yoga?",
+      answer: "Yes, many women pair face yoga with YogHer's full-body live yoga for complete physical and facial fitness. Contact our team on WhatsApp for discounted combination packages.",
+    },
+  ] as FaqItem[],
+};

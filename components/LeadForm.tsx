@@ -233,42 +233,42 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
       id={id}
       className={`w-full min-w-0 ${
         isDiet
-          ? "bg-white p-6 sm:p-8 rounded-card-lg shadow-xl shadow-bordeaux/5 border border-cotton/80"
-          : "bg-softpink p-6 sm:p-8 rounded-card-lg border border-cotton"
+          ? "bg-white p-3.5 sm:p-8 rounded-card-lg shadow-xl shadow-bordeaux/5 border border-cotton/80"
+          : "bg-softpink p-3.5 sm:p-8 rounded-card-lg border border-cotton"
       }`}
     >
       {isDiet ? (
         <>
-          <span className="inline-block px-3 py-1 bg-cotton text-bordeaux text-xs font-bold uppercase tracking-eyebrow rounded-full mb-3">
+          <span className="inline-block px-2.5 py-0.5 sm:py-1 bg-cotton text-bordeaux text-[10px] sm:text-xs font-bold uppercase tracking-eyebrow rounded-full mb-1.5 sm:mb-3">
             Join YogHer Live
           </span>
-          <h2 className="text-2xl sm:text-[26px] font-extrabold text-bordeaux tracking-tight leading-tight">
+          <h2 className="text-lg sm:text-[26px] font-extrabold text-bordeaux tracking-tight leading-tight">
             Find the right batch for you
           </h2>
-          <p className="text-muted text-sm mt-1.5 mb-6">
+          <p className="text-muted text-xs sm:text-sm mt-0.5 sm:mt-1.5 mb-2 sm:mb-6">
             Share your goal to get batch timings, fees and joining link directly on WhatsApp.
           </p>
         </>
       ) : (
         <>
-          <h2 className="text-2xl sm:text-[26px] font-extrabold text-bordeaux tracking-tight leading-tight">
+          <h2 className="text-lg sm:text-[26px] font-extrabold text-bordeaux tracking-tight leading-tight">
             Find a batch that fits your day
           </h2>
-          <p className="text-muted text-sm mt-1.5 mb-6">
+          <p className="text-muted text-xs sm:text-sm mt-0.5 sm:mt-1.5 mb-2 sm:mb-6">
             We will send batch timings and your joining link on WhatsApp.
           </p>
         </>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4 w-full min-w-0" noValidate>
+      <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4 w-full min-w-0" noValidate>
         {errorMsg && (
-          <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl" role="alert">
+          <div className="p-2.5 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl" role="alert">
             {errorMsg}
           </div>
         )}
 
         <div className="w-full min-w-0">
-          <label htmlFor={`name-${variant}`} className="block text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1.5">
+          <label htmlFor={`name-${variant}`} className="block text-[11px] sm:text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1 sm:mb-1.5">
             Full name
           </label>
           <input
@@ -279,12 +279,12 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={isSubmitting}
-            className="w-full min-w-0 min-h-[46px] px-3.5 py-2.5 rounded-xl border border-input-border bg-white text-bordeaux placeholder:text-muted/60 text-[16px] sm:text-sm focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
+            className="w-full min-w-0 min-h-[38px] sm:min-h-[46px] px-3 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl border border-input-border bg-white text-bordeaux placeholder:text-muted/60 text-[16px] sm:text-sm focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
           />
         </div>
 
         <div className="w-full min-w-0">
-          <label htmlFor={`phone-${variant}`} className="block text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1.5">
+          <label htmlFor={`phone-${variant}`} className="block text-[11px] sm:text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1 sm:mb-1.5">
             WhatsApp number
           </label>
           <div className="flex gap-2 w-full min-w-0">
@@ -293,7 +293,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
               disabled={isSubmitting}
-              className="w-[96px] shrink-0 min-h-[46px] px-2.5 py-2 rounded-xl border border-input-border bg-white text-bordeaux text-[16px] sm:text-xs font-medium focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux"
+              className="w-[88px] sm:w-[96px] shrink-0 min-h-[38px] sm:min-h-[46px] px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-xl border border-input-border bg-white text-bordeaux text-[16px] sm:text-xs font-medium focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux"
             >
               {COUNTRY_CODES.map((c) => (
                 <option key={c.code} value={c.code} title={c.title}>
@@ -312,13 +312,13 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               disabled={isSubmitting}
-              className="flex-1 min-w-0 w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border border-input-border bg-white text-bordeaux placeholder:text-muted/60 text-[16px] sm:text-sm focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
+              className="flex-1 min-w-0 w-full min-h-[38px] sm:min-h-[46px] px-3 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl border border-input-border bg-white text-bordeaux placeholder:text-muted/60 text-[16px] sm:text-sm focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
             />
           </div>
         </div>
 
         <div className="w-full min-w-0">
-          <label htmlFor={`selection-${variant}`} className="block text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1.5">
+          <label htmlFor={`selection-${variant}`} className="block text-[11px] sm:text-xs font-semibold text-bordeaux uppercase tracking-wider mb-1 sm:mb-1.5">
             {isDiet ? "Main goal" : "Preferred time"}
           </label>
           <select
@@ -326,7 +326,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
             value={selection}
             onChange={(e) => setSelection(e.target.value)}
             disabled={isSubmitting}
-            className="w-full min-w-0 min-h-[46px] px-3.5 py-2.5 rounded-xl border border-input-border bg-white text-bordeaux text-[16px] sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
+            className="w-full min-w-0 min-h-[38px] sm:min-h-[46px] px-3 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl border border-input-border bg-white text-bordeaux text-[16px] sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-bordeaux focus:border-bordeaux transition-all"
           >
             {isDiet
               ? GOAL_OPTIONS.map((goal) => (
@@ -345,7 +345,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full min-h-[48px] px-6 py-3 rounded-full bg-bordeaux text-white font-bold text-sm tracking-wide shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bordeaux transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full min-h-[42px] sm:min-h-[48px] px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-bordeaux text-white font-bold text-xs sm:text-sm tracking-wide shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bordeaux transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <>
@@ -362,7 +362,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
           )}
         </button>
 
-        <p className="text-center text-xs text-muted/80 pt-1">
+        <p className="text-center text-[11px] sm:text-xs text-muted/80 pt-0.5">
           Your details stay private. No spam.
         </p>
       </form>
