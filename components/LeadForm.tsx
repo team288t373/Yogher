@@ -51,7 +51,6 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
     isDiet ? GOAL_OPTIONS[0] : TIME_OPTIONS[0]
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   // Store & read UTM params, and listen for goal pre-selection event
@@ -178,57 +177,15 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
         });
       }
 
-      setIsSubmitted(true);
-      setIsSubmitting(false);
-
       // Direct instant redirect to WhatsApp Business with pre-filled message
       window.location.href = targetWhatsappUrl;
+
+      // Reset submitting flag after a short timeout in case user navigates back
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 2500);
     }
   };
-
-  const whatsappHref = isDiet
-    ? `https://wa.me/918679244416?text=${encodeURIComponent(
-        `Hi YogHer! I'd like to join YogHer live classes.\n\nName: ${name || "Member"}\nGoal: ${selection}\nPhone: ${countryCode} ${phoneNumber}\nPlease share batch timings and joining details.`
-      )}`
-    : `https://wa.me/917302970977?text=${encodeURIComponent(
-        `Hi GlowHer! I'd like to know more about the live face yoga classes.\n\nName: ${name || "Member"}\nPreferred Time: ${selection}\nPhone: ${countryCode} ${phoneNumber}`
-      )}`;
-
-  if (isSubmitted) {
-    return (
-      <div
-        id={id}
-        className={`${
-          isDiet
-            ? "bg-white p-6 sm:p-8 rounded-card-lg shadow-lg border border-cotton/60"
-            : "bg-softpink p-6 sm:p-8 rounded-card-lg border border-cotton"
-        } text-center flex flex-col items-center justify-center min-h-[380px] w-full min-w-0`}
-      >
-        <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-emerald-600">
-          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-extrabold text-bordeaux mb-2">
-          Opening WhatsApp...
-        </h3>
-        <p className="text-muted text-base max-w-sm mb-6 leading-relaxed">
-          Connecting you with our team on WhatsApp with your details.
-        </p>
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-colors shadow-md gap-2"
-        >
-          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-          </svg>
-          <span>Click here to open WhatsApp</span>
-        </a>
-      </div>
-    );
-  }
 
   return (
     <div
@@ -355,7 +312,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
               </svg>
-              <span>Submitting...</span>
+              <span>Opening WhatsApp...</span>
             </>
           ) : isDiet ? (
             "Get Batch Details on WhatsApp"
