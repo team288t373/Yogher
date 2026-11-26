@@ -129,7 +129,9 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
       ? `Hi YogHer! I'd like to join YogHer live classes.\n\nName: ${trimmedName}\nPhone: ${fullPhone}\nGoal: ${selection}\nPlease share batch timings and details.`
       : `Hi GlowHer! I'd like to know more about the live face yoga classes.\n\nName: ${trimmedName}\nPhone: ${fullPhone}\nPreferred Time: ${selection}\nPlease share batch timings and joining details.`;
 
-    const targetWhatsappUrl = `https://wa.me/917302970977?text=${encodeURIComponent(targetMessage)}`;
+    const targetWhatsappUrl = isDiet
+      ? `https://wa.me/918679244416?text=${encodeURIComponent(targetMessage)}`
+      : `https://wa.me/917302970977?text=${encodeURIComponent(targetMessage)}`;
 
     // 1. Send to client webhook if configured (background fire-and-forget)
     const webhookUrl = process.env.NEXT_PUBLIC_LEAD_WEBHOOK_URL;
@@ -185,7 +187,7 @@ export default function LeadForm({ variant, id }: LeadFormProps) {
   };
 
   const whatsappHref = isDiet
-    ? `https://wa.me/917302970977?text=${encodeURIComponent(
+    ? `https://wa.me/918679244416?text=${encodeURIComponent(
         `Hi YogHer! I'd like to join YogHer live classes.\n\nName: ${name || "Member"}\nGoal: ${selection}\nPhone: ${countryCode} ${phoneNumber}\nPlease share batch timings and joining details.`
       )}`
     : `https://wa.me/917302970977?text=${encodeURIComponent(
