@@ -21,7 +21,13 @@ export default function FinalCTA() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[#5A0016]/82 backdrop-blur-[1px]" />
+        {/* Dual dark overlay: gradient + blur for 100% text legibility */}
+        <div
+          style={{
+            background: "linear-gradient(180deg, rgba(30, 0, 7, 0.88) 0%, rgba(70, 0, 17, 0.92) 50%, rgba(90, 0, 22, 0.94) 100%)",
+          }}
+          className="absolute inset-0 backdrop-blur-[2px]"
+        />
       </div>
 
       <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 text-center">
